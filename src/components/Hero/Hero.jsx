@@ -18,8 +18,8 @@ const Hero = () => {
       <div className="flex flex-col gap-10 md:flex-row justify-center md:justify-between">
         <div className="space-y-10 md:w-[500px] order-last md:order-1">
           <p className="font-cera font-bold text-xl leading-8 tracking-wide lg:text-3xl">
-            Hello, I'm Ralph Ortiz. I specialize in transforming imagination
-            into delightful digital experiences.
+            Hello, I&apos;m Ralph Ortiz. I specialize in transforming
+            imagination into delightful digital experiences.
           </p>
           <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-4 md:flex-row">
             <ContactDialog />
@@ -46,7 +46,7 @@ const Hero = () => {
       </div>
       <article className="space-y-6">
         <p className="font-cera font-bold">
-          Here are a few technologies that I've been working with recently:
+          Here are a few technologies that I&apos;ve been working with recently:
         </p>
         <div className="flex justify-between md:justify-start">
           <ul className="space-y-2 md:mr-16">
