@@ -38,7 +38,7 @@ const ContactDialog = () => {
         <DialogHeader>
           <DialogTitle>Contact Me</DialogTitle>
           <DialogDescription>
-            Let's get in touch by sending me a message.
+            Let&apos;s get in touch by sending me a message.
           </DialogDescription>
         </DialogHeader>
         <ContactForm handleOnSubmit={handleOnSubmit} />

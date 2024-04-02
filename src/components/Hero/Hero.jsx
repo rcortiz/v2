@@ -50,16 +50,16 @@ const Hero = () => {
         </p>
         <div className="flex justify-between md:justify-start">
           <ul className="space-y-2 md:mr-16">
-            <li>→ Javascript</li>
-            <li>→ Typescript</li>
+            <li>&rarr; Javascript</li>
+            <li>&rarr; Typescript</li>
             <li>→ Tailwind</li>
             <li>→ NodeJS</li>
           </ul>
           <ul className="space-y-2">
-            <li>→ ExpressJS</li>
-            <li>→ Docker</li>
-            <li>→ Git / Github</li>
-            <li>→ MongoDB</li>
+            <li>&rarr; ExpressJS</li>
+            <li>&rarr; Docker</li>
+            <li>&rarr; Git / Github</li>
+            <li>&rarr; MongoDB</li>
           </ul>
         </div>
         <p className="font-cera font-bold mb-5">Here&apos;s my social links:</p>
