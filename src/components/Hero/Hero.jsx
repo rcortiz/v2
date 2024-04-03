@@ -18,8 +18,9 @@ const Hero = () => {
       <div className="flex flex-col gap-10 md:flex-row justify-center md:justify-between">
         <div className="space-y-10 md:w-[500px] order-last md:order-1">
           <p className="font-cera font-bold text-xl leading-8 tracking-wide lg:text-3xl">
-            Hello, I&apos;m Ralph Ortiz. I specialize in transforming
-            imagination into delightful digital experiences.
+            Hey there, I'm Ralph Ortiz. I&apos;m passionate about integrating
+            functionality and design in applications to create intuitive,
+            user-friendly experiences.
           </p>
           <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-4 md:flex-row">
             <ContactDialog />

@@ -75,37 +75,26 @@ export const experiences = [
 export const projects = [
   {
     category: "Side Project",
-    title: "Sample Project 1",
+    title: "Cars Showcase",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Massa turpis sit morbi urna et. Pellentesque elit vitae sit tortor.",
-    techstacks: [
-      "ReactJS",
-      "MongoDB",
-      "ReactJS",
-      "MongoDB",
-      "ReactJS",
-      "MongoDB",
-    ],
+      "A web application that showcase different car models with detailed information.",
+    techstacks: ["NextJS", "TypeScript", "Tailwind"],
+    link: "https://github.com/rcortiz/cars-showcase-jsm",
   },
   {
     category: "Side Project",
-    title: "Sample Project 2",
+    title: "E-commerce",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Massa turpis sit morbi urna et. Pellentesque elit vitae sit tortor.",
-    techstacks: ["NextJS", "PHP"],
+      "A combination of a CMS and Frontend web application for a product digital storefront.",
+    techstacks: ["NextJS", "Payload CMS"],
+    link: "https://github.com/rcortiz/e-commerce",
   },
   {
     category: "Side Project",
-    title: "Sample Project 2",
+    title: "My Portfolio v2",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Massa turpis sit morbi urna et. Pellentesque elit vitae sit tortor.",
-    techstacks: ["NextJS", "PHP"],
-  },
-  {
-    category: "Side Project",
-    title: "Sample Project 2",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Massa turpis sit morbi urna et. Pellentesque elit vitae sit tortor.",
-    techstacks: ["NextJS", "PHP"],
+      "A revamped version of my portfolio to showcases my skills and projects.",
+    techstacks: ["NextJS", "Tailwind", "Shadcn", "Framer Motion"],
+    link: "https://github.com/rcortiz/my-portfolio-v2",
   },
 ];

@@ -5,15 +5,21 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const ExperienceCard = ({ role, company, year, responsibilities }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const handleToggle = () => {
+    if (!isAnimating) {
+      setIsAnimating(true);
+      setIsOpen((prev) => !prev);
+      setTimeout(() => {
+        setIsAnimating(false);
+      }, 300);
+    }
+  };
 
   return (
     <>
-      <motion.header
-        initial={false}
-        onClick={() => {
-          setIsOpen((prev) => !prev);
-        }}
-      >
+      <motion.header initial={false} onClick={handleToggle}>
         <div className="w-full border-2 cursor-pointer select-none border-primary rounded-md mb-2 p-4 hover:bg-primary hover:text-secondary">
           <h1>{role}</h1>
           <p className="text-sm">{year}</p>
@@ -30,7 +36,10 @@ const ExperienceCard = ({ role, company, year, responsibilities }) => {
                 open: { opacity: 1, height: "auto" },
                 collapsed: { opacity: 0, height: 0 },
               }}
-              transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
+              transition={{
+                duration: 0.3,
+                ease: "easeInOut",
+              }}
               className="overflow-hidden"
             >
               <div className="p-4">
