@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 
 const ProjectCard = ({ category, title, description, techstacks, link }) => {
   return (
-    <Card className="flex flex-col">
+    <Card className="grow flex flex-col">
       <CardHeader>
         <p className="text-xs font-medium ">{category}</p>
         <h1 className="text-xl">{title}</h1>

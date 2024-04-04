@@ -52,7 +52,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="container flex justify-between gap-5 px-4 py-8 z-10">
+      <header className="container flex justify-between gap-5 py-8 z-10">
         <ThemeToggle />
         <nav className="flex justify-end items-center max-container">
           <div className="hidden md:block">

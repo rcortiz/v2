@@ -21,7 +21,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 px-6 py-6 flex justify-center"
+              className="w-full md:w-[400px] lg:w-[500px] md:px-6 py-2 md:py-6 flex justify-stretch"
             >
               <ProjectCard {...project} />
             </div>
