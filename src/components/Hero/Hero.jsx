@@ -23,7 +23,7 @@ const Hero = () => {
           <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-4 md:flex-row">
             <ContactDialog />
             <a href="https://calendly.com/ralphortiz/30min" target="_blank">
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg" className="w-full">
                 Schedule a meeting <ArrowRightIcon className="ml-3 h-6 w-6" />
               </Button>
             </a>
