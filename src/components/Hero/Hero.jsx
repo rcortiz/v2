@@ -6,13 +6,11 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import Bubble from "../Bubble/Bubble";
 import SvgHeroImg from "../icons/HeroImg";
-
-import { useToast } from "@/components/ui/use-toast";
-import { ArrowRightIcon, ExternalLinkIcon } from "@radix-ui/react-icons";
 import ContactDialog from "../ContactDialog/ContactDialog";
 
+import { ArrowRightIcon, ExternalLinkIcon } from "@radix-ui/react-icons";
+
 const Hero = () => {
-  const { toast } = useToast();
   return (
     <main className="flex flex-col gap-10 md:w-[800px] mx-auto">
       <div className="flex flex-col gap-10 md:flex-row justify-center md:justify-between">
@@ -24,18 +22,11 @@ const Hero = () => {
           </p>
           <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-4 md:flex-row">
             <ContactDialog />
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={() => {
-                toast({
-                  title: "Scheduled: Catch up",
-                  description: "Friday, February 10, 2023 at 5:57 PM",
-                });
-              }}
-            >
-              Schedule a meeting <ArrowRightIcon className="ml-3 h-6 w-6" />
-            </Button>
+            <a href="https://calendly.com/ralphortiz/30min" target="_blank">
+              <Button variant="outline" size="lg">
+                Schedule a meeting <ArrowRightIcon className="ml-3 h-6 w-6" />
+              </Button>
+            </a>
           </div>
         </div>
         <figure className="relative mx-auto order-1 md:order-last">
