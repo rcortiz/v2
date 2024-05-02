@@ -98,7 +98,7 @@ const ContactForm = ({ handleOnSubmit }) => {
             />
           </div>
           <div className="flex justify-end">
-            <Button type="submit" variant="outline" disabled={!isValid}>
+            <Button type="submit" disabled={!isValid}>
               Submit
             </Button>
           </div>

@@ -17,58 +17,36 @@ export const intros = [
   "Software Engineer",
   "Graphic Designer",
   "Web Developer",
-  "Music Lover",
   "Problem Solver",
   "Creative Thinker",
-  "Data Analyst",
-  "Photographer",
-  "Entrepreneur",
-  "Fitness Enthusiast",
-  "Art Lover",
-  "Bookworm",
   "Coffee Addict",
-  "Animal Lover",
-  "Nature Explorer",
   "Tech Geek",
-  "Traveler",
-  "Foodie",
-  "Film Buff",
-  "Language Learner",
 ];
 
 export const experiences = [
   {
-    role: "Full Stack Web Developer",
+    role: "Analyst Developer",
     year: "September 2023 - Present",
     company: "GMA New Media Inc.",
-    responsibilities: [
-      "Develop websites and systems to be used by the company and/or its clients.",
-      "Maintain current existing websites and systems.",
-      "Review code of team members and perform version controls.",
-      "Align with company business units for their software application needs/requests.",
-    ],
+    responsibility:
+      "Develop websites and systems to be used by the company and/or its clients and maintain current existing websites and systems.",
+    techstacks: ["ReactJS", "NextJS", "Code Igniter"],
   },
   {
-    role: "Full Stack Web Developer",
+    role: "Software Developer",
     year: "January 2023 - August 2023",
     company: "MedGrocer (MG Health Solutions Inc.)",
-    responsibilities: [
-      "Develop websites and systems to be used by the company and/or its clients.",
-      "Maintain current existing websites and systems.",
-      "Review code of team members and perform version controls.",
-      "Align with company business units for their software application needs/requests.",
-    ],
+    responsibility:
+      "Review code of team members and perform version controls and Align with company business units for their software application needs/requests.",
+    techstacks: ["ReactJS", "NextJS", "Code Igniter"],
   },
   {
     role: "Android Developer",
     year: "January 2023 - August 2023",
     company: "Knowledge Channel",
-    responsibilities: [
-      "Develop websites and systems to be used by the company and/or its clients.",
-      "Maintain current existing websites and systems.",
-      "Review code of team members and perform version controls.",
-      "Align with company business units for their software application needs/requests.",
-    ],
+    responsibility:
+      "Collaborating with designers and other developers to create new features and improve existing ones and maintaining Android applications using Java or Kotlin, as well as utilizing Android SDK tools such as Android Studio.",
+    techstacks: ["ReactJS", "NextJS", "Code Igniter"],
   },
 ];
 

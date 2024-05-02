@@ -30,7 +30,7 @@ const ContactDialog = () => {
   return (
     <Dialog open={IsOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline" size="lg">
+        <Button size="lg">
           Contact Me <ArrowRightIcon className="ml-3 h-6 w-6" />
         </Button>
       </DialogTrigger>

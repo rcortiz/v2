@@ -68,7 +68,7 @@ const Navbar = () => {
                   </li>
                 );
               })}
-              <Button variant="outline">
+              <Button>
                 <a href="/RalphOrtizResumeV3.pdf" download>
                   <span>Resume</span>
                 </a>
@@ -124,7 +124,7 @@ const Navbar = () => {
                     </li>
                   );
                 })}
-                <Button variant="outline">
+                <Button>
                   <a href="/RalphOrtizResumeV3.pdf" download>
                     <span>Resume</span>
                   </a>

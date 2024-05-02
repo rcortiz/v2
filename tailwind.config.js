@@ -29,9 +29,6 @@ const config = {
         "4xl": "2.441rem",
         "5xl": "3.052rem",
       },
-      borderColor: {
-        white: "#ffffff",
-      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -68,9 +65,15 @@ const config = {
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        base: "4px",
+      },
+      boxShadow: {
+        dark: "4px 4px 0px 0px rgba(0,0,0,1)",
+        light: "4px 4px 0px 0px rgba(255, 255, 255, 1)",
+      },
+      translate: {
+        boxShadowX: "4px",
+        boxShadowY: "4px",
       },
       keyframes: {
         "accordion-down": {
@@ -101,10 +104,6 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "slide-in": "slide-in 0.5s ease-in-out",
-        "slide-out": "slide-out 0.5s ease-in-out",
-        "card-expand": "card-expand 0.5s ease-in-out",
-        "card-close": "card-close 0.5s ease-out",
       },
     },
   },

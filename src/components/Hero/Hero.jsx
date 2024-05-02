@@ -1,8 +1,5 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
-
 import { Button } from "../ui/button";
 import Bubble from "../Bubble/Bubble";
 import SvgHeroImg from "../icons/HeroImg";
@@ -23,7 +20,7 @@ const Hero = () => {
           <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-4 md:flex-row">
             <ContactDialog />
             <a href="https://calendly.com/ralphortiz/30min" target="_blank">
-              <Button variant="outline" size="lg" className="w-full">
+              <Button size="lg" className="w-full">
                 Schedule a meeting <ArrowRightIcon className="ml-3 h-6 w-6" />
               </Button>
             </a>
@@ -56,20 +53,23 @@ const Hero = () => {
         </div>
         <p className="font-cera font-bold mb-5">Here&apos;s my social links:</p>
         <div className="flex justify-between md:justify-start">
-          <p className="flex items-center">
-            <Link href="/" className="flex md:w-32 items-center">
-              Twitter <ExternalLinkIcon className="ml-2 h-4 w-4" />
-            </Link>
-          </p>
           <p className="flex md:w-32 items-center">
-            <Link href="/" className="flex items-center">
+            <a
+              href="https://www.facebook.com/iamrortiz/"
+              target="_blank"
+              className="flex items-center"
+            >
               Facebook <ExternalLinkIcon className="ml-2 h-4 w-4" />
-            </Link>
+            </a>
           </p>
           <p className="flex items-center">
-            <Link href="/" className="flex md:w-32  items-center">
+            <a
+              href="https://www.linkedin.com/in/ralphortiz/"
+              target="_blank"
+              className="flex md:w-32  items-center"
+            >
               Linkedin <ExternalLinkIcon className="ml-2 h-4 w-4" />
-            </Link>
+            </a>
           </p>
         </div>
       </article>

@@ -1,7 +1,4 @@
 import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { motion } from "framer-motion";
 
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import {
@@ -35,7 +32,7 @@ const ProjectCard = ({ category, title, description, techstacks, link }) => {
       </CardContent>
       <CardFooter className="flex justify-end items-end">
         <a href={link} target="_blank">
-          <Button variant="outline">
+          <Button>
             Learn More <ArrowRightIcon className="ml-3 h-4 w-4" />
           </Button>
         </a>

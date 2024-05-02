@@ -21,6 +21,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "dotenv": "^16.4.5",
+    "firebase": "^10.11.0",
     "formik": "^2.4.5",
     "framer-motion": "^11.0.24",
     "next": "14.1.4",
