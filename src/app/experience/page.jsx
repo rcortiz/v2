@@ -5,8 +5,7 @@ import { useState, useEffect } from "react";
 import Layout from "@/container/Layout/Layout";
 import Timeline from "@/components/Timeline/Timeline";
 
-import { db } from "@/services/firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { fetchCollectionData } from "@/services/firebase";
 
 // export const metadata = {
 //   title: "Experience",
@@ -14,20 +13,39 @@ import { collection, getDocs } from "firebase/firestore";
 
 const Experience = () => {
   const [experiences, setExperiences] = useState([]);
+  const [isTransitionVisible, setTransitionVisible] = useState(true);
 
-  const fetchPost = async () => {
-    await getDocs(collection(db, "Experiences")).then((experiences) => {
-      const newData = experiences.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-      setExperiences(newData);
-    });
-  };
+  // const fetchPost = async () => {
+  //   await getDocs(collection(db, "Experiences")).then((experiences) => {
+  //     const newData = experiences.docs.map((doc) => ({
+  //       ...doc.data(),
+  //       id: doc.id,
+  //     }));
+  //     setExperiences(newData);
+  //   });
+  // };
+
+  // useEffect(() => {
+  //   fetchPost();
+  // }, []);
 
   useEffect(() => {
-    fetchPost();
+    const fetchExperiences = async () => {
+      try {
+        const experienceData = await fetchCollectionData("Experiences");
+        setExperiences(experienceData);
+        setTimeout(() => {
+          setTransitionVisible(false); // Hide transition after fetching data
+        }, 500); // Match the duration of the transition
+        setTransitionVisible(true);
+      } catch (error) {
+        console.error("Failed to fetch experience:", error);
+      }
+    };
+
+    fetchExperiences();
   }, []);
+
   return (
     <Layout
       showHeader

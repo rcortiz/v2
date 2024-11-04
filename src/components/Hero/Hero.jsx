@@ -12,10 +12,11 @@ const Hero = () => {
     <main className="flex flex-col gap-10 md:w-[800px] mx-auto">
       <div className="flex flex-col gap-10 md:flex-row justify-center md:justify-between">
         <div className="space-y-10 md:w-[500px] order-last md:order-1">
-          <p className="font-cera font-bold text-xl leading-8 tracking-wide lg:text-3xl">
-            Hey there, I&apos;m Ralph Ortiz. I&apos;m passionate about
-            integrating functionality and design in applications to create
-            intuitive, user-friendly experiences.
+          <p className="font-cera font-medium italic text-[24px] leading-8 tracking-wide text-center lg:text-start lg:text-[32px]">
+            Hey there! I&apos;m{" "}
+            <strong className="font-black">Ralph Ortiz</strong>. I&apos;m
+            passionate about integrating functionality and design in
+            applications to create intuitive, user-friendly experiences.
           </p>
           <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-4 md:flex-row">
             <ContactDialog />
@@ -42,10 +43,10 @@ const Hero = () => {
             <li>&rarr; Javascript</li>
             <li>&rarr; Typescript</li>
             <li>→ Tailwind</li>
-            <li>→ NodeJS</li>
+            <li>→ Node.js</li>
           </ul>
           <ul className="space-y-2">
-            <li>&rarr; ExpressJS</li>
+            <li>&rarr; Express.js</li>
             <li>&rarr; Docker</li>
             <li>&rarr; Git / Github</li>
             <li>&rarr; MongoDB</li>
@@ -69,6 +70,15 @@ const Hero = () => {
               className="flex md:w-32  items-center"
             >
               Linkedin <ExternalLinkIcon className="ml-2 h-4 w-4" />
+            </a>
+          </p>
+          <p className="flex items-center">
+            <a
+              href="https://dribbble.com/_rcortiz"
+              target="_blank"
+              className="flex md:w-32  items-center"
+            >
+              Dribble <ExternalLinkIcon className="ml-2 h-4 w-4" />
             </a>
           </p>
         </div>

@@ -1,6 +1,12 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import {
+  getDocs,
+  getFirestore,
+  collection,
+  query,
+  orderBy,
+} from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,3 +25,28 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+
+// Initialize collection data fetching
+
+export const fetchCollectionData = async (collectionName) => {
+  try {
+    let docsQuery;
+
+    if (collectionName === "Experiences") {
+      docsQuery = query(collection(db, collectionName), orderBy("order"));
+    } else {
+      docsQuery = collection(db, collectionName);
+    }
+    // const querySnapshot = await getDocs(collection(db, collectionName));
+    const querySnapshot = await getDocs(docsQuery);
+    const data = querySnapshot.docs.map((doc) => ({
+      ...doc.data(),
+      id: doc.id,
+    }));
+    console.log("Fetched data:", data);
+    return data;
+  } catch (error) {
+    console.error("Error fetching data from Firestore", error);
+    throw error;
+  }
+};

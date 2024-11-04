@@ -5,8 +5,7 @@ import { useState, useEffect } from "react";
 import ProjectCard from "@/components/ProjectCard/ProjectCard";
 import Layout from "@/container/Layout/Layout";
 
-import { db } from "@/services/firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { fetchCollectionData } from "@/services/firebase";
 
 // export const metadata = {
 //   title: "Projects",
@@ -15,18 +14,31 @@ import { collection, getDocs } from "firebase/firestore";
 const Projects = () => {
   const [projects, setProjects] = useState([]);
 
-  const fetchPost = async () => {
-    await getDocs(collection(db, "Projects")).then((projects) => {
-      const newData = projects.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-      setProjects(newData);
-    });
-  };
+  // const fetchPost = async () => {
+  //   await getDocs(collection(db, "Projects")).then((projects) => {
+  //     const newData = projects.docs.map((doc) => ({
+  //       ...doc.data(),
+  //       id: doc.id,
+  //     }));
+  //     setProjects(newData);
+  //   });
+  // };
+
+  // useEffect(() => {
+  //   fetchPost();
+  // }, []);
 
   useEffect(() => {
-    fetchPost();
+    const fetchProjects = async () => {
+      try {
+        const projectData = await fetchCollectionData("Projects");
+        setProjects(projectData);
+      } catch (error) {
+        console.error("Failed to fetch projects:", error);
+      }
+    };
+
+    fetchProjects();
   }, []);
 
   return (
