@@ -69,7 +69,7 @@ const Navbar = () => {
                 );
               })}
               <Button>
-                <a href="/RalphOrtizResumeV3.pdf" download>
+                <a href="/ORTIZ_Resume.pdf" download>
                   <span>Resume</span>
                 </a>
               </Button>
