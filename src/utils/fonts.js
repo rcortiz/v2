@@ -28,7 +28,7 @@ const cera_round_pro_init = localFont({
     {
       path: "./fonts/CeraRoundProBold.otf",
       weight: "700",
-      style: "normal",
+      style: "bold",
     },
     {
       path: "./fonts/CeraRoundProBlack.otf",
@@ -39,5 +39,27 @@ const cera_round_pro_init = localFont({
   variable: "--font-cera",
 });
 
+const sf_pro_display_init = localFont({
+  src: [
+    {
+      path: "./fonts/SFPRODISPLAYREGULAR.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/SFPRODISPLAYMEDIUM.otf",
+      weight: "500",
+      style: "medium",
+    },
+    {
+      path: "./fonts/SFPRODISPLAYBOLD.otf",
+      weight: "700",
+      style: "bold",
+    },
+  ],
+  variable: "--font-sfpro",
+});
+
 export const inter = inter_init.variable;
 export const ceraRoundPro = cera_round_pro_init.variable;
+export const sfProDisplay = sf_pro_display_init.variable;
