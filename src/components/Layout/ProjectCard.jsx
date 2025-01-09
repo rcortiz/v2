@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 
-import { ArrowRightIcon } from "@radix-ui/react-icons";
+import { FaArrowRight } from "react-icons/fa";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
-} from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+} from "@/components/UI/ui/card";
+import { Skeleton } from "@/components/UI/ui/skeleton";
+import { Badge } from "@/components/UI/ui/badge";
+import { Button } from "@/components/UI/ui/button";
 
 const ProjectCard = ({ category, title, description, techstacks, link }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -69,7 +69,7 @@ const ProjectCard = ({ category, title, description, techstacks, link }) => {
         ) : (
           <a href={link} target="_blank">
             <Button>
-              Learn More <ArrowRightIcon className="ml-3 h-4 w-4" />
+              Learn More <FaArrowRight className="ml-2" size="14px" />
             </Button>
           </a>
         )}

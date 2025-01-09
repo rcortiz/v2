@@ -1,4 +1,4 @@
-import Hero from "@/components/Hero/Hero";
+import Hero from "@/components/Layout/Hero";
 import Layout from "@/container/Layout/Layout";
 
 export const metadata = {

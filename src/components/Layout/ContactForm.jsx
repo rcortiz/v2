@@ -1,10 +1,10 @@
 import React from "react";
 import { ErrorMessage, Form, Formik } from "formik";
 
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
+import { Button } from "../UI/ui/button";
+import { Input } from "../UI/ui/input";
 
-import { Textarea } from "../ui/textarea";
+import { Textarea } from "../UI/ui/textarea";
 import { contactFormSchema } from "@/services/validation";
 
 const ContactForm = ({ handleOnSubmit }) => {

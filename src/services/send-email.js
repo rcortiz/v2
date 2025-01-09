@@ -1,9 +1,6 @@
 import emailjs from "@emailjs/browser";
-import { useToast } from "@/components/ui/use-toast";
 
 const sendEmail = (values) => {
-  // const { toast } = useToast();
-
   emailjs
     .send(
       process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID,

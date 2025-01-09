@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-import ProjectCard from "@/components/ProjectCard/ProjectCard";
+import ProjectCard from "@/components/Layout/ProjectCard";
 import Layout from "@/container/Layout/Layout";
 
 import { fetchCollectionData } from "@/services/firebase";

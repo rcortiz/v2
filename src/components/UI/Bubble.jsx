@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { intros } from "@/constant";
+import { intros } from "@/constants";
 
 const Bubble = () => {
   const [randomText, setRandomText] = useState("");

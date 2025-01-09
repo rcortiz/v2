@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useToast } from "../ui/use-toast";
+import { useToast } from "../UI/ui/use-toast";
 
 import {
   Dialog,
@@ -8,12 +8,13 @@ import {
   DialogDescription,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
-import ContactForm from "../ContactForm/ContactForm";
-import { Button } from "../ui/button";
+} from "@/components/UI/ui/dialog";
+import ContactForm from "../Layout/ContactForm";
+import { Button } from "../UI/ui/button";
 
-import { ArrowRightIcon } from "@radix-ui/react-icons";
-import sendEmail from "@/services/sendEmail";
+import { FaArrowRight } from "react-icons/fa";
+
+import sendEmail from "@/services/send-email";
 
 const ContactDialog = () => {
   const [IsOpen, setIsOpen] = useState(false);
@@ -31,7 +32,7 @@ const ContactDialog = () => {
     <Dialog open={IsOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <Button size="lg">
-          Contact Me <ArrowRightIcon className="ml-3 h-6 w-6" />
+          Contact Me <FaArrowRight className="ml-2" size="14px" />
         </Button>
       </DialogTrigger>
       <DialogContent>

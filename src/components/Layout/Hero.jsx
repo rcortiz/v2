@@ -1,35 +1,35 @@
 "use client";
 
-import { Button } from "../ui/button";
-import Bubble from "../Bubble/Bubble";
-import SvgHeroImg from "../icons/HeroImg";
-import ContactDialog from "../ContactDialog/ContactDialog";
+import { Button } from "../UI/ui/button";
+import Bubble from "../UI/Bubble";
+import Avatar from "../UI/Avatar.js";
 
-import { ArrowRightIcon, ExternalLinkIcon } from "@radix-ui/react-icons";
+import ContactDialog from "./ContactDialog";
+
+import { FaArrowRight, FaExternalLinkAlt } from "react-icons/fa";
 
 const Hero = () => {
   return (
     <main className="flex flex-col gap-10 md:w-[800px] mx-auto">
       <div className="flex flex-col gap-10 md:flex-row justify-center md:justify-between">
         <div className="space-y-10 md:w-[500px] order-last md:order-1">
-          <p className="font-cera font-medium italic text-[24px] leading-8 tracking-wide text-center lg:text-start lg:text-[32px]">
-            Hey there! I&apos;m{" "}
-            <strong className="font-black">Ralph Ortiz</strong>. I&apos;m
-            passionate about integrating functionality and design in
+          <p className="font-cera text-[24px] leading-8 tracking-wide text-center lg:text-start lg:text-[32px]">
+            Hey there! I&apos;m <strong className="font-black">Ralph</strong>.
+            I&apos;m passionate about integrating functionality and design in
             applications to create intuitive, user-friendly experiences.
           </p>
           <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-4 md:flex-row">
             <ContactDialog />
             <a href="https://calendly.com/ralphortiz/30min" target="_blank">
               <Button size="lg" className="w-full">
-                Schedule a meeting <ArrowRightIcon className="ml-3 h-6 w-6" />
+                Schedule a meeting <FaArrowRight className="ml-2" size="14px" />
               </Button>
             </a>
           </div>
         </div>
         <figure className="relative mx-auto order-1 md:order-last">
-          <SvgHeroImg className="self-center w-[200px] h-[200px]" />
-          <div className="absolute -top-5 left-20">
+          <Avatar />
+          <div className="absolute -top-4 -right-5">
             <Bubble />
           </div>
         </figure>
@@ -60,7 +60,7 @@ const Hero = () => {
               target="_blank"
               className="flex items-center"
             >
-              Facebook <ExternalLinkIcon className="ml-2 h-4 w-4" />
+              Facebook <FaExternalLinkAlt size="14px" className="ml-2" />
             </a>
           </p>
           <p className="flex items-center">
@@ -69,7 +69,7 @@ const Hero = () => {
               target="_blank"
               className="flex md:w-32  items-center"
             >
-              Linkedin <ExternalLinkIcon className="ml-2 h-4 w-4" />
+              Linkedin <FaExternalLinkAlt size="14px" className="ml-2" />
             </a>
           </p>
           <p className="flex items-center">
@@ -78,7 +78,7 @@ const Hero = () => {
               target="_blank"
               className="flex md:w-32  items-center"
             >
-              Dribble <ExternalLinkIcon className="ml-2 h-4 w-4" />
+              Dribble <FaExternalLinkAlt size="14px" className="ml-2" />
             </a>
           </p>
         </div>

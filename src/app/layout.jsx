@@ -1,6 +1,6 @@
-import { Toaster } from "@/components/ui/toaster";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
+import { Toaster } from "@/components/UI/ui/toaster";
+import Navbar from "@/components/Layout/Navbar";
+import Footer from "@/components/Layout/Footer";
 
 import { inter, ceraRoundPro } from "@/utils/fonts";
 import "./globals.css";
@@ -20,9 +20,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark">
       <body className={`${inter} ${ceraRoundPro}`}>
-        <div className="flex flex-col min-h-screen">
+        <div className="min-h-[100dvh] grid grid-rows-[auto_1fr_auto]">
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main>{children}</main>
           <Toaster />
           <Footer />
         </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Button } from "../ui/button";
+import { Button } from "../UI/ui/button";
 
 import { SunIcon, MoonIcon } from "@radix-ui/react-icons";
 
