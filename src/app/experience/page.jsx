@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-import Layout from "@/container/Layout/Layout";
+import Layout from "@/components/Layout/Layout";
 import Timeline from "@/components/Layout/Timeline";
 
 import { fetchCollectionData } from "@/services/firebase";

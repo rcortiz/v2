@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 import ProjectCard from "@/components/Layout/ProjectCard";
-import Layout from "@/container/Layout/Layout";
+import Layout from "@/components/Layout/Layout";
 
 import { fetchCollectionData } from "@/services/firebase";
 

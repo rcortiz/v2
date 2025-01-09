@@ -2,8 +2,7 @@
 
 import { Button } from "../UI/ui/button";
 import Bubble from "../UI/Bubble";
-import Avatar from "../UI/Avatar.js";
-
+import Avatar from "../UI/Avatar";
 import ContactDialog from "./ContactDialog";
 
 import { FaArrowRight, FaExternalLinkAlt } from "react-icons/fa";

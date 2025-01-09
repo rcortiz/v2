@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { FaCodeMerge, FaStar } from "react-icons/fa6";
+import { FaCodeBranch, FaStar } from "react-icons/fa6";
 
 const Footer = () => {
   const [year, setYear] = useState(new Date().getFullYear());
@@ -30,17 +30,36 @@ const Footer = () => {
 
   return (
     <footer className="flex items-center flex-col mb-6 gap-y-2 w-full">
-      <p className="text-center font-cera font-bold text-sm">
-        &copy; {year} Designed and Built by Ralph Ortiz
+      <p className="text-center font-cera text-xs">
+        Developed using{" "}
+        <a
+          href="https://code.visualstudio.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#FFAB00] font-bold"
+        >
+          Visual Studio Code
+        </a>{" "}
+        and designed using{" "}
+        <a
+          href="https://www.figma.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#FFAB00] font-bold"
+        >
+          Figma
+        </a>
+        .<br />
+        &copy; {year} Ralph Ortiz
       </p>
-      <div className="flex items-center mt-2 gap-x-4 text-sm">
-        <div className="flex items-center space-x-1">
-          <FaStar size="12px" />
-          <p className="text-sm font-bold">{repoDetails.stars}</p>
+      <div className="flex items-center mt-2 gap-x-4">
+        <div className="flex items-center justify-center space-x-1">
+          <FaStar size="13px" />
+          <p className="text-xs leading-none">{repoDetails.stars}</p>
         </div>
-        <div className="flex items-center space-x-1">
-          <FaCodeMerge size="12px" />
-          <p className="text-sm font-bold">{repoDetails.forks}</p>
+        <div className="flex items-center justify-center space-x-1">
+          <FaCodeBranch size="13px" />
+          <p className="text-xs leading-none">{repoDetails.forks}</p>
         </div>
       </div>
     </footer>
