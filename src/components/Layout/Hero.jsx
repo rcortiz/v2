@@ -20,7 +20,7 @@ const Hero = () => {
     <main className="mx-auto flex flex-col gap-10 md:w-[800px]">
       <div className="flex flex-col justify-center gap-10 md:flex-row md:justify-between">
         <div className="order-last md:order-1 md:w-[500px]">
-          <div className="mb-6 flex flex-col gap-y-2 text-center lg:text-start">
+          <div className="mb-6 flex flex-col gap-y-2 text-center md:text-start">
             <h1 className="text-4xl font-bold">Ralph Ortiz</h1>
             <h2 className="text-lg font-medium">Full Stack Engineer</h2>
             <p>
@@ -106,7 +106,7 @@ const Hero = () => {
             <a
               href="https://www.gmanmi.com/"
               target="_blank"
-              className="font-medium text-[#FFAB00]"
+              className="font-medium text-[#EE4865] hover:underline dark:text-[#FFAB00]"
             >
               GMA New Media Inc.
             </a>
