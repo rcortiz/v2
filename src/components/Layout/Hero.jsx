@@ -95,14 +95,14 @@ const Hero = () => {
         <div>
           <h5 className="mb-4 font-cera text-lg font-medium">About Me</h5>
           <p className="mb-4">
-            I’m a software engineer passionate about creating seamless,
+            I&rsquo;m a software engineer passionate about creating seamless,
             high-performance user interfaces that blend thoughtful design with
             strong engineering principles. I enjoy working at the intersection
             of design and development, ensuring that the experiences I build are
-            not only visually compelling but also highly usable and efficient
+            not only visually compelling but also highly usable and efficient.
           </p>
           <p className="mb-4">
-            Currently, I'm a Software Developer at{" "}
+            Currently, I&rsquo;m a Software Developer at{" "}
             <a
               href="https://www.gmanmi.com/"
               target="_blank"
@@ -117,7 +117,7 @@ const Hero = () => {
             systems.
           </p>
           <p className="mb-4">
-            In the past, I’ve had the opportunity to work in diverse
+            In the past, I&rsquo;ve had the opportunity to work in diverse
             environments, from large corporations to start-ups, and have gained
             valuable experience in managing group systems, APIs, and integrating
             modern technologies like ReactJS and Node.js. Additionally, I enjoy
@@ -125,9 +125,9 @@ const Hero = () => {
             development.
           </p>
           <p className="mb-4">
-            Outside of work, I’m usually at the gym, playing video games,
+            Outside of work, I&rsquo;m usually at the gym, playing video games,
             reading, or watching TV series and documentaries. Traveling is
-            another one of my passions, and I’m always looking for new
+            another one of my passions, and I&rsquo;m always looking for new
             adventures.
           </p>
         </div>
