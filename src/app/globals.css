@@ -11,8 +11,6 @@
 p,
 li {
   font-family: var(--font-inter);
-  font-weight: normal;
-  line-height: normal;
   font-size: 16px;
 }
 

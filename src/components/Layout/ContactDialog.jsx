@@ -12,7 +12,7 @@ import {
 import ContactForm from "../Layout/ContactForm";
 import { Button } from "../UI/ui/button";
 
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa6";
 
 import sendEmail from "@/services/send-email";
 

@@ -15,13 +15,15 @@ const ThemeToggle = () => {
 
   return (
     <Button variant="ghost" onClick={toggleMode}>
-      <motion.div
-        initial={{ rotate: 0 }}
-        animate={{ rotate: darkMode ? 180 : 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <CgDarkMode size="20px" />
-      </motion.div>
+      <div onClick={toggleMode}>
+        <motion.div
+          initial={{ rotate: 0 }}
+          animate={{ rotate: darkMode ? 180 : 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <CgDarkMode size="20px" onClick={toggleMode} />
+        </motion.div>
+      </div>
     </Button>
   );
 };
