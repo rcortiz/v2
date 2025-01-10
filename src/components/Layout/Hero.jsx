@@ -2,12 +2,9 @@
 
 import {
   FaArrowRight,
-  FaArrowLeftLong,
-  FaArrowRightLong,
   FaCodepen,
   FaLinkedin,
   FaDribbble,
-  FaReact,
 } from "react-icons/fa6";
 
 import { Button } from "../UI/ui/button";
