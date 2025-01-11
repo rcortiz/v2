@@ -2,6 +2,7 @@
 
 import {
   FaArrowRight,
+  FaGithub,
   FaCodepen,
   FaLinkedin,
   FaDribbble,
@@ -37,6 +38,9 @@ const Hero = () => {
             </a>
           </div>
           <div className="mt-10 flex justify-center space-x-5 md:justify-start">
+            <a href="https://github.com/rcortiz" target="_blank">
+              <FaGithub size="24px" className="opacity-60 hover:opacity-100" />
+            </a>
             <a href="https://codepen.io/rcortiz" target="_blank">
               <FaCodepen size="24px" className="opacity-60 hover:opacity-100" />
             </a>
