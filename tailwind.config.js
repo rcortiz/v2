@@ -19,7 +19,6 @@ const config = {
       fontFamily: {
         inter: ["var(--font-inter)"],
         cera: ["var(--font-cera)"],
-        sfpro: ["var(--font-sfpro)"],
       },
       fontSize: {
         sm: "0.8rem",
@@ -75,36 +74,6 @@ const config = {
       translate: {
         boxShadowX: "4px",
         boxShadowY: "4px",
-      },
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "" },
-        },
-        "card-expand": {
-          from: { maxHeight: "0" },
-          to: { maxHeight: "500px" },
-        },
-        "card-close": {
-          from: { maxHeight: "500px" },
-          to: { maxHeight: "0" },
-        },
-        "slide-in": {
-          "0%": { transform: "translateX(-100%)" },
-          "100%": { transform: "translateX(0%)" },
-        },
-        "slide-out": {
-          "0%": { transform: "translateX(0%)" },
-          "100%": { transform: "translateX(-100%)" },
-        },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },

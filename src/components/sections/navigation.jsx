@@ -1,16 +1,16 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
-import { Button } from "../UI/ui/button";
-import ThemeToggle from "../UI/ThemeToggle";
+import { Button } from "@/components/ui/button";
+import Toggle from "@/components/toggle";
 
 import { FaBars, FaXmark } from "react-icons/fa6";
 import { navLinks } from "@/constants";
 
-const Navbar = () => {
+const NavigationBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navMenuRef = useRef(null);
 
@@ -52,16 +52,16 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="container flex justify-between gap-5 py-8 z-20">
-        <ThemeToggle />
-        <nav className="flex justify-end items-center max-container">
+      <header className="container z-20 flex justify-between gap-5 py-8">
+        <Toggle />
+        <nav className="max-container flex items-center justify-end">
           <div className="hidden md:block">
-            <ul className="flex-1 flex items-center gap-14 max-lg:hidden">
+            <ul className="flex flex-1 items-center gap-14 max-lg:hidden">
               {navLinks.map((navLink, index) => {
                 return (
                   <li key={index}>
                     <Link href={navLink.path}>
-                      <p className="font-cera text-md">{navLink.name}</p>
+                      <p className="text-md font-cera">{navLink.name}</p>
                     </Link>
                   </li>
                 );
@@ -74,7 +74,7 @@ const Navbar = () => {
             </ul>
           </div>
           <div
-            className="hidden max-lg:block cursor-pointer transition-all z-30"
+            className="z-30 hidden cursor-pointer transition-all max-lg:block"
             onClick={toggleMenu}
           >
             {isMenuOpen ? <FaXmark size="20px" /> : <FaBars size="20px" />}
@@ -94,15 +94,15 @@ const Navbar = () => {
               ease: "easeInOut",
             }}
             style={{ overflow: "hidden" }}
-            className="flex fixed w-[70%] h-screen right-0 bg-background z-20 border-primary"
+            className="fixed right-0 z-20 flex h-screen w-[70%] border-primary bg-background"
           >
-            <ul className="lg:hidden flex flex-col mx-auto gap-10 items-center justify-center h-full">
+            <ul className="mx-auto flex h-full flex-col items-center justify-center gap-10 lg:hidden">
               {navLinks.map((navLink, index) => {
                 return (
                   <li key={index}>
                     <Link href={navLink.path}>
                       <p
-                        className="font-cera text-md"
+                        className="text-md font-cera"
                         onClick={() => {
                           setIsMenuOpen(false);
                         }}
@@ -126,4 +126,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavigationBar;

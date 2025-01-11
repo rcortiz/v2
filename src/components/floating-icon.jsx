@@ -1,9 +1,7 @@
 import { motion } from "framer-motion";
-import Image from "next/image";
 
-const AnimatedIcon = ({
-  src,
-  alt,
+const FloatingIcon = ({
+  IconComponent,
   className,
   animateProps,
   transitionProps,
@@ -14,9 +12,9 @@ const AnimatedIcon = ({
       animate={animateProps}
       transition={transitionProps}
     >
-      <Image src={src} alt={alt} fill className="object-contain p-2" />
+      <IconComponent className="h-12 w-12 p-2 text-white dark:text-black" />
     </motion.figure>
   );
 };
 
-export default AnimatedIcon;
+export default FloatingIcon;

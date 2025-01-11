@@ -1,10 +1,10 @@
 import React from "react";
 import { ErrorMessage, Form, Formik } from "formik";
 
-import { Button } from "../UI/ui/button";
-import { Input } from "../UI/ui/input";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
-import { Textarea } from "../UI/ui/textarea";
 import { contactFormSchema } from "@/services/validation";
 
 const ContactForm = ({ handleOnSubmit }) => {
@@ -20,7 +20,7 @@ const ContactForm = ({ handleOnSubmit }) => {
       onSubmit={handleOnSubmit}
     >
       {({ values, handleChange, handleBlur, isValid }) => (
-        <Form className="space-y-4 mt-4">
+        <Form className="mt-4 space-y-4">
           <div className="space-y-2">
             <p htmlFor="fullname" className="text-sm font-semibold">
               Full Name

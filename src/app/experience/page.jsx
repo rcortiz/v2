@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 
-import Layout from "@/components/Layout/Layout";
-import Timeline from "@/components/Layout/Timeline";
+import Layout from "@/components/layout/layout";
+import Timeline from "@/components/layout/timeline";
 
 import { fetchCollectionData } from "@/services/firebase";
 

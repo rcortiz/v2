@@ -55,6 +55,7 @@ h6 {
     --ring: 0 0% 3.9%;
 
     --radius: 0.5rem;
+    --accent-text: 345 85% 60%; /* HSL equivalent of #EE4865 */
   }
 
   .dark {
@@ -85,6 +86,7 @@ h6 {
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
+    --accent-text: 42 100% 50%; /* HSL equivalent of #FFAB00 */
   }
 }
 

@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 
-import ProjectCard from "@/components/Layout/ProjectCard";
-import Layout from "@/components/Layout/Layout";
+import ProjectCard from "@/components/sections/projects";
+import Layout from "@/components/layout/layout";
 
 import { fetchCollectionData } from "@/services/firebase";
 
@@ -52,7 +52,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="w-full md:w-[350px] md:px-6 py-2 md:py-6 flex justify-stretch"
+              className="flex w-full justify-stretch py-2 md:w-[350px] md:px-6 md:py-6"
             >
               <ProjectCard {...project} />
             </div>

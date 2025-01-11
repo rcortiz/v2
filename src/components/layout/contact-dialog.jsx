@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useToast } from "../UI/ui/use-toast";
 
 import {
   Dialog,
@@ -8,12 +7,12 @@ import {
   DialogDescription,
   DialogTitle,
   DialogTrigger,
-} from "@/components/UI/ui/dialog";
-import ContactForm from "../Layout/ContactForm";
-import { Button } from "../UI/ui/button";
+} from "../ui/dialog";
+import ContactForm from "./contact-form";
+import { Button } from "../ui/button";
+import { useToast } from "../ui/use-toast";
 
 import { FaArrowRight } from "react-icons/fa6";
-
 import sendEmail from "@/services/send-email";
 
 const ContactDialog = () => {

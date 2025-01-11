@@ -7,10 +7,13 @@ import {
   FaDribbble,
 } from "react-icons/fa6";
 
-import { Button } from "../UI/ui/button";
-import Avatar from "../UI/Avatar";
-import ContactDialog from "./ContactDialog";
-import AnimatedIcon from "../UI/AnimatedIcon";
+import { Button } from "@/components/ui/button";
+import Avatar from "@/components/avatar";
+import ContactDialog from "@/components/layout/contact-dialog";
+import AnimatedIcon from "@/components/floating-icon";
+import ReactIcon from "@/components/icons/react";
+import ExpressIcon from "@/components/icons/express";
+import TailwindIcon from "@/components/icons/tailwind";
 
 const Hero = () => {
   return (
@@ -54,8 +57,7 @@ const Hero = () => {
         <div className="relative order-1 mx-auto md:order-last">
           <Avatar />
           <AnimatedIcon
-            src="/express.svg"
-            alt="Express logo"
+            IconComponent={ReactIcon}
             className="-right-6 -top-4 h-8 w-8"
             animateProps={{ y: [0, -10, 0] }}
             transitionProps={{
@@ -65,8 +67,7 @@ const Hero = () => {
             }}
           />
           <AnimatedIcon
-            src="/react.svg"
-            alt="React logo"
+            IconComponent={ExpressIcon}
             className="-left-5 top-12 h-10 w-10"
             animateProps={{ y: [0, 10, 0] }}
             transitionProps={{
@@ -76,8 +77,7 @@ const Hero = () => {
             }}
           />
           <AnimatedIcon
-            src="/tailwind.svg"
-            alt="Tailwind logo"
+            IconComponent={TailwindIcon}
             className="-right-8 bottom-8 h-12 w-12"
             animateProps={{ y: [0, -8, 0] }}
             transitionProps={{

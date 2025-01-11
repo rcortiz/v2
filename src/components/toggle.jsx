@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-
-import { Button } from "../UI/ui/button";
 import { motion } from "framer-motion";
+
+import { Button } from "@/components/ui/button";
 
 import { CgDarkMode } from "react-icons/cg";
 
-const ThemeToggle = () => {
+const Toggle = () => {
   const [darkMode, setDarkMode] = useState(false);
 
   const toggleMode = () => {
@@ -28,4 +28,4 @@ const ThemeToggle = () => {
   );
 };
 
-export default ThemeToggle;
+export default Toggle;

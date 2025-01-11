@@ -1,5 +1,5 @@
-import Hero from "@/components/Layout/Hero";
-import Layout from "@/components/Layout/Layout";
+import Hero from "@/components/sections/hero";
+import Layout from "@/components/layout/layout";
 
 export const metadata = {
   title: "Ralph Ortiz",
