@@ -12,7 +12,7 @@ const FloatingIcon = ({
       animate={animateProps}
       transition={transitionProps}
     >
-      <IconComponent className="h-12 w-12 p-2 text-white dark:text-black" />
+      <IconComponent className="h-12 w-12 p-2 text-primary invert" />
     </motion.figure>
   );
 };

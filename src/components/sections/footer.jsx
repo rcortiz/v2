@@ -38,7 +38,7 @@ const Footer = () => {
             href="https://code.visualstudio.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-bold text-[#EE4865] dark:text-[#FFAB00]"
+            className="text-tx-accent font-bold"
           >
             Visual Studio Code
           </a>{" "}
@@ -47,7 +47,7 @@ const Footer = () => {
             href="https://www.figma.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-bold text-[#EE4865] dark:text-[#FFAB00]"
+            className="text-tx-accent font-bold"
           >
             Figma
           </a>

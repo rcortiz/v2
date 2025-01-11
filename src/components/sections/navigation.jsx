@@ -52,7 +52,7 @@ const NavigationBar = () => {
 
   return (
     <>
-      <header className="container z-20 flex justify-between gap-5 py-8">
+      <div className="container z-20 flex justify-between gap-5 py-8">
         <Toggle />
         <nav className="max-container flex items-center justify-end">
           <div className="hidden md:block">
@@ -73,14 +73,15 @@ const NavigationBar = () => {
               </Button>
             </ul>
           </div>
-          <div
-            className="z-30 hidden cursor-pointer transition-all max-lg:block"
+          <Button
+            variant="ghost"
+            className="hidden max-lg:block"
             onClick={toggleMenu}
           >
             {isMenuOpen ? <FaXmark size="20px" /> : <FaBars size="20px" />}
-          </div>
+          </Button>
         </nav>
-      </header>
+      </div>
       <AnimatePresence>
         {isMenuOpen && (
           <motion.nav
@@ -94,7 +95,7 @@ const NavigationBar = () => {
               ease: "easeInOut",
             }}
             style={{ overflow: "hidden" }}
-            className="fixed right-0 z-20 flex h-screen w-[70%] border-primary bg-background"
+            className="fixed right-0 z-10 flex h-screen w-[70%] border-primary bg-background"
           >
             <ul className="mx-auto flex h-full flex-col items-center justify-center gap-10 lg:hidden">
               {navLinks.map((navLink, index) => {
@@ -102,7 +103,7 @@ const NavigationBar = () => {
                   <li key={index}>
                     <Link href={navLink.path}>
                       <p
-                        className="text-md font-cera"
+                        className="font-cera"
                         onClick={() => {
                           setIsMenuOpen(false);
                         }}

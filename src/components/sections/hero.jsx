@@ -17,7 +17,7 @@ import TailwindIcon from "@/components/icons/tailwind";
 
 const Hero = () => {
   return (
-    <main className="mx-auto flex flex-col gap-10 md:w-[800px]">
+    <div className="mx-auto flex flex-col gap-10 md:w-[800px]">
       <div className="flex flex-col justify-center gap-10 md:flex-row md:justify-between">
         <div className="order-last md:order-1 md:w-[500px]">
           <div className="mb-6 flex flex-col gap-y-2 text-center md:text-start">
@@ -129,7 +129,7 @@ const Hero = () => {
           </p>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 
