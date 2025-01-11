@@ -1,5 +1,8 @@
 "use client";
 
+import React, { useState, useEffect } from "react";
+import _ from "lodash";
+
 import {
   FaArrowRight,
   FaGithub,
@@ -13,10 +16,34 @@ import Avatar from "@/components/avatar";
 import ContactDialog from "@/components/layout/contact-dialog";
 import AnimatedIcon from "@/components/floating-icon";
 import ReactIcon from "@/components/icons/react";
+import NodeIcon from "@/components/icons/node";
 import ExpressIcon from "@/components/icons/express";
 import TailwindIcon from "@/components/icons/tailwind";
+import BulmaIcon from "@/components/icons/bulma";
+import NextIcon from "@/components/icons/next";
+import BootstrapIcon from "@/components/icons/bootstrap";
 
 const Hero = () => {
+  const [randomIcons, setRandomIcons] = useState([null, null, null]);
+  const icons = [
+    ReactIcon,
+    ExpressIcon,
+    NodeIcon,
+    TailwindIcon,
+    BulmaIcon,
+    NextIcon,
+    BootstrapIcon,
+  ];
+
+  useEffect(() => {
+    const selectedIcons = _.sampleSize(icons, 3);
+    setRandomIcons(selectedIcons);
+  }, []);
+
+  if (randomIcons.includes(null)) {
+    return null;
+  }
+
   return (
     <div className="mx-auto flex flex-col gap-10 md:w-[800px]">
       <div className="flex flex-col justify-center gap-10 md:flex-row md:justify-between">
@@ -61,7 +88,7 @@ const Hero = () => {
         <div className="relative order-1 mx-auto md:order-last">
           <Avatar />
           <AnimatedIcon
-            IconComponent={ReactIcon}
+            IconComponent={randomIcons[0]}
             className="-right-6 -top-4 h-8 w-8"
             animateProps={{ y: [0, -10, 0] }}
             transitionProps={{
@@ -71,7 +98,7 @@ const Hero = () => {
             }}
           />
           <AnimatedIcon
-            IconComponent={ExpressIcon}
+            IconComponent={randomIcons[1]}
             className="-left-5 top-12 h-10 w-10"
             animateProps={{ y: [0, 10, 0] }}
             transitionProps={{
@@ -81,7 +108,7 @@ const Hero = () => {
             }}
           />
           <AnimatedIcon
-            IconComponent={TailwindIcon}
+            IconComponent={randomIcons[2]}
             className="-right-8 bottom-8 h-12 w-12"
             animateProps={{ y: [0, -8, 0] }}
             transitionProps={{
