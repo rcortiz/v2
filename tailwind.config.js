@@ -18,8 +18,8 @@ const config = {
     extend: {
       fontFamily: {
         inter: ["var(--font-inter)"],
-        fira: ["var(--font-fira)"],
         cera: ["var(--font-cera)"],
+        roboto: ["var(--font-roboto)"],
       },
       fontSize: {
         sm: "0.8rem",

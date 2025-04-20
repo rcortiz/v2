@@ -48,7 +48,7 @@ const Projects = ({ category, title, description, techstacks, link }) => {
   return (
     <Card className="flex grow flex-col">
       <CardHeader>
-        <p className="text-xs font-medium">{category}</p>
+        <code className="text-xs">{category}</code>
         <h1 className="text-xl">{title}</h1>
       </CardHeader>
       <CardContent className="flex-1 pb-10">

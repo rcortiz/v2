@@ -71,7 +71,7 @@ const ExperienceCard = ({
               </h3>
             </a>
 
-            <div className="flex justify-between text-primary/90 md:justify-end md:gap-4">
+            <div className="flex justify-between text-sm text-primary/90 md:justify-end md:gap-4 md:text-base">
               <code>{role}</code>
               <span className="hidden md:inline">|</span>
               <code>{year}</code>

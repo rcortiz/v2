@@ -6,7 +6,6 @@ import { Input } from "../ui/input";
 import { useCommandPaletteStore } from "@/store/store";
 
 import { FaXmark, FaMagnifyingGlass } from "react-icons/fa6";
-import * as FaIcons from "react-icons/fa6";
 
 const CommandPalette = () => {
   const { isOpen, close } = useCommandPaletteStore();
@@ -20,7 +19,7 @@ const CommandPalette = () => {
       commands: [
         {
           id: "print",
-          label: "Print Resume",
+          label: "Print",
           shortcut: { key: "P", modifier: "Ctrl" },
           action: () => {
             window.print();
@@ -176,7 +175,7 @@ const CommandPalette = () => {
                     </div>
                     {command.shortcut && (
                       <div className="flex items-center pb-2">
-                        <code className="rounded bg-gray-200 px-2 py-1 text-xs text-gray-700">
+                        <code className="rounded bg-gray-200 px-2 py-1 text-xs text-gray-800">
                           {command.shortcut.modifier} + {command.shortcut.key}
                         </code>
                       </div>
@@ -201,11 +200,11 @@ const CommandPalette = () => {
           </div>
 
           <div className="flex items-center">
-            <code className="rounded bg-gray-200 px-2 py-1 text-sm text-xs text-gray-700">
+            <code className="rounded bg-gray-200 px-2 py-1 text-sm text-xs text-gray-800">
               Ctrl + K
             </code>
-            <span className="mx-2">&#124;</span>
-            <code className="rounded bg-gray-200 px-2 py-1 text-sm text-xs text-gray-700">
+            <span className="mx-2">|</span>
+            <code className="rounded bg-gray-200 px-2 py-1 text-sm text-xs text-gray-800">
               Escape
             </code>
             <span className="ml-2">to close</span>

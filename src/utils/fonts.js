@@ -2,9 +2,9 @@ import { Inter, Roboto_Mono } from "next/font/google";
 import localFont from "next/font/local";
 
 const inter_init = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const fira_init = Roboto_Mono({
+const roboto_init = Roboto_Mono({
   subsets: ["latin"],
-  variable: "--font-fira",
+  variable: "--font-roboto",
 });
 
 const cera_round_pro_init = localFont({
@@ -44,5 +44,5 @@ const cera_round_pro_init = localFont({
 });
 
 export const inter = inter_init.variable;
-export const fira = fira_init.variable;
+export const roboto = roboto_init.variable;
 export const ceraRoundPro = cera_round_pro_init.variable;
