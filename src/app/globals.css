@@ -24,6 +24,10 @@ h6 {
   font-family: var(--font-cera);
 }
 
+code {
+  font-family: var(--font-fira);
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

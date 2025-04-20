@@ -7,26 +7,8 @@ import Layout from "@/components/layout/layout";
 
 import { fetchCollectionData } from "@/services/firebase";
 
-// export const metadata = {
-//   title: "Projects",
-// };
-
 const Projects = () => {
   const [projects, setProjects] = useState([]);
-
-  // const fetchPost = async () => {
-  //   await getDocs(collection(db, "Projects")).then((projects) => {
-  //     const newData = projects.docs.map((doc) => ({
-  //       ...doc.data(),
-  //       id: doc.id,
-  //     }));
-  //     setProjects(newData);
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   fetchPost();
-  // }, []);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -45,7 +27,7 @@ const Projects = () => {
     <Layout
       showHeader
       title="Projects"
-      subtitle="A collection of things I've built."
+      subtitle="A highlights of what I've designed and built"
     >
       <div className="flex flex-col">
         <div className="flex flex-wrap justify-center">

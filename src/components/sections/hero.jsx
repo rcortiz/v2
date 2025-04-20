@@ -20,7 +20,6 @@ import NodeIcon from "@/components/icons/node";
 import ExpressIcon from "@/components/icons/express";
 import TailwindIcon from "@/components/icons/tailwind";
 import BulmaIcon from "@/components/icons/bulma";
-import NextIcon from "@/components/icons/next";
 import BootstrapIcon from "@/components/icons/bootstrap";
 
 const Hero = () => {
@@ -31,7 +30,6 @@ const Hero = () => {
     NodeIcon,
     TailwindIcon,
     BulmaIcon,
-    NextIcon,
     BootstrapIcon,
   ];
 
@@ -45,12 +43,14 @@ const Hero = () => {
   }
 
   return (
-    <div className="mx-auto flex flex-col gap-10 md:w-[800px]">
+    <div className="mx-auto flex flex-col gap-10 md:w-[1100px]">
       <div className="flex flex-col justify-center gap-10 md:flex-row md:justify-between">
         <div className="order-last md:order-1 md:w-[500px]">
-          <div className="mb-6 flex flex-col gap-y-2 text-center md:text-start">
+          <div className="mb-6 flex flex-col text-center md:text-start">
             <h1 className="text-4xl font-bold">Ralph Ortiz</h1>
-            <h2 className="text-lg font-medium">Full Stack Engineer</h2>
+            <code className="pb-4 pt-1 text-lg font-semibold">
+              Full Stack Engineer
+            </code>
             <p>
               I am passionate about integrating functionality and design in
               applications to create intuitive, user-friendly experiences.
@@ -122,14 +122,14 @@ const Hero = () => {
       <div className="space-y-6">
         <div>
           <h5 className="mb-4 font-cera text-lg font-medium">About Me</h5>
-          <p className="mb-4">
+          <p className="mb-4 text-primary/75">
             I&rsquo;m a software engineer passionate about creating seamless,
             high-performance user interfaces that blend thoughtful design with
             strong engineering principles. I enjoy working at the intersection
             of design and development, ensuring that the experiences I build are
             not only visually compelling but also highly usable and efficient.
           </p>
-          <p className="mb-4">
+          <p className="mb-4 text-primary/75">
             Currently, I&rsquo;m a Software Developer at{" "}
             <a
               href="https://www.gmanmi.com/"
@@ -144,7 +144,7 @@ const Hero = () => {
             implement new features, troubleshoot issues, and enhance existing
             systems.
           </p>
-          <p className="mb-4">
+          <p className="mb-4 text-primary/75">
             In the past, I&rsquo;ve had the opportunity to work in diverse
             environments, from large corporations to start-ups, and have gained
             valuable experience in managing group systems, APIs, and integrating
@@ -152,7 +152,7 @@ const Hero = () => {
             creating personal projects that explore different aspects of web
             development.
           </p>
-          <p className="mb-4">
+          <p className="mb-4 text-primary/75">
             Outside of work, I&rsquo;m usually at the gym, playing video games,
             reading, or watching TV series and documentaries. Traveling is
             another one of my passions, and I&rsquo;m always looking for new

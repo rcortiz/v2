@@ -28,32 +28,29 @@ const ExperienceCard = ({
     return (
       <div className="py-5">
         <div className="flex flex-col md:flex-row md:justify-between">
-          <div className="w-full md:w-4/5">
-            <div className="flex justify-between md:justify-start">
-              <div>
+          <div className="w-full">
+            <div className="flex flex-col gap-1 pb-2 md:flex-row md:items-center md:justify-between">
+              <div className="pb-2">
                 <Skeleton className="h-6 w-48" />
               </div>
-              <div className="md:hidden">
-                <Skeleton className="h-4 w-16" />
+
+              <div className="flex justify-between pb-4 md:justify-start md:gap-4">
+                <Skeleton className="h-6 w-32" />
+                <Skeleton className="h-6 w-20" />
               </div>
             </div>
-            <div className="pb-2 pt-1">
-              <Skeleton className="mt-2 h-5 w-40" />
+
+            <div className="space-y-2 pb-2 pt-2">
+              <Skeleton className="h-6 w-full" />
+              <Skeleton className="h-6 w-full" />
+              <Skeleton className="h-6 w-full" />
             </div>
-            <div className="pb-4">
-              <Skeleton className="mt-3 h-5 w-full max-w-md" />
-              <Skeleton className="mt-3 h-5 w-full max-w-md" />
-              <Skeleton className="mt-3 h-5 w-full max-w-md" />
-              <Skeleton className="mt-3 h-5 w-full max-w-md" />
-            </div>
+
             <div className="flex flex-wrap gap-2">
               {[1, 2, 3].map((index) => (
-                <Skeleton key={index} className="mb-1 h-6 w-16" />
+                <Skeleton key={index} className="h-6 w-16" />
               ))}
             </div>
-          </div>
-          <div className="hidden w-full text-right md:block md:w-1/5">
-            <Skeleton className="ml-auto h-6 w-28" />
           </div>
         </div>
       </div>
@@ -63,27 +60,33 @@ const ExperienceCard = ({
   return (
     <div className="py-5">
       <div className="flex flex-col md:flex-row md:justify-between">
-        <div className="w-full md:w-4/5">
-          <div className="flex justify-between md:justify-start">
+        <div className="w-full">
+          <div className="flex flex-col gap-1 pb-2 md:flex-row md:items-center md:justify-between">
             <a href={link} target="_blank" rel="noopener noreferrer">
-              <h3 className="flex items-center">
+              <h3 className="flex items-center text-base font-semibold">
                 {company}
                 <span className="ml-1">
                   <ArrowUpRightIcon />
                 </span>
               </h3>
             </a>
-            <p className="text-sm md:hidden">{year}</p>
+
+            <div className="flex justify-between text-primary/90 md:justify-end md:gap-4">
+              <code>{role}</code>
+              <span className="hidden md:inline">|</span>
+              <code>{year}</code>
+            </div>
           </div>
-          <p className="pb-2 pt-1">{role}</p>
-          <div className="pb-2">
+
+          <div className="space-y-2 pt-2">
             {responsibility.map((item, index) => (
-              <p key={index} className="pb-4 text-primary/75">
+              <p key={index} className="text-primary/75">
                 {item}
               </p>
             ))}
           </div>
-          <div className="flex flex-wrap gap-2">
+
+          <div className="mt-4 flex flex-wrap gap-2">
             {techstacks.map((tech, index) => (
               <Badge
                 key={index}
@@ -95,7 +98,6 @@ const ExperienceCard = ({
             ))}
           </div>
         </div>
-        <p className="hidden w-full text-right md:block md:w-1/5">{year}</p>
       </div>
     </div>
   );
