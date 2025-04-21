@@ -1,5 +1,7 @@
 "use client";
 import { useEffect } from "react";
+import { motion } from "framer-motion";
+
 import { Toaster } from "@/components/ui/toaster";
 import NavigationBar from "@/components/sections/navigation";
 import Footer from "@/components/sections/footer";
@@ -36,17 +38,27 @@ export default function RootLayout({ children }) {
           <Toaster />
           <CommandPalette />
           <div className="flex justify-center pb-6">
-            <p className="text-xs text-primary/70">
-              Press
-              <code
-                className="mx-2 cursor-pointer rounded bg-gray-200 px-2 py-1 text-gray-800"
-                onClick={toggle}
-              >
-                Ctrl + K
-              </code>
-              to open command palette
-            </p>
+            <motion.div
+              className="cursor-pointer rounded-full bg-background/80 px-4 py-2 backdrop-blur-sm"
+              onClick={toggle}
+              initial={{ opacity: 1, y: 10 }}
+              animate={{ opacity: 0.5, y: 0 }}
+              transition={{
+                duration: 0.8,
+                ease: "easeOut",
+              }}
+              whileHover={{ scale: 1.04, opacity: 1, duration: 0.8 }}
+            >
+              <p className="text-xs text-primary">
+                Press
+                <code className="mx-2 rounded bg-gray-200 px-2 py-1 text-gray-800">
+                  Ctrl + K
+                </code>
+                to open command palette
+              </p>
+            </motion.div>
           </div>
+
           <Footer />
         </div>
       </body>

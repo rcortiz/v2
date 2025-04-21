@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Tooltip } from "react-tooltip";
 
 import { FaCodeBranch, FaRegStar } from "react-icons/fa6";
 
@@ -38,7 +39,7 @@ const Footer = () => {
             href="https://code.visualstudio.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-tx-accent font-bold"
+            className="font-bold text-tx-accent"
           >
             Visual Studio Code
           </a>{" "}
@@ -47,7 +48,7 @@ const Footer = () => {
             href="https://www.figma.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-tx-accent font-bold"
+            className="font-bold text-tx-accent"
           >
             Figma
           </a>
@@ -55,14 +56,24 @@ const Footer = () => {
         <span className="font-cera text-xs">&copy; {year} Ralph Ortiz</span>
       </div>
       <div className="mt-2 flex items-center gap-x-4 gap-y-2">
-        <div className="flex items-center justify-center space-x-2">
+        <div
+          data-tooltip-id="stars"
+          data-tooltip-content="GitHub stars count"
+          className="flex items-center justify-center space-x-2"
+        >
           <FaRegStar size="15px" />
           <p className="text-xs leading-none">{repoDetails.stars}</p>
         </div>
-        <div className="flex items-center justify-center space-x-2">
+        <Tooltip id="stars" />
+        <div
+          data-tooltip-id="forks"
+          data-tooltip-content="GitHub forks count"
+          className="flex items-center justify-center space-x-2"
+        >
           <FaCodeBranch size="13px" />
           <p className="text-xs leading-none">{repoDetails.forks}</p>
         </div>
+        <Tooltip id="forks" />
       </div>
     </footer>
   );
