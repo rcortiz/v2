@@ -52,7 +52,7 @@ export default function RootLayout({ children }) {
               <p className="text-xs text-primary">
                 Press
                 <code className="mx-2 rounded bg-gray-200 px-2 py-1 text-gray-800">
-                  Ctrl + K
+                  ⌘ + K
                 </code>
                 to open command palette
               </p>

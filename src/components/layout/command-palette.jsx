@@ -20,7 +20,7 @@ const CommandPalette = () => {
         {
           id: "print",
           label: "Print",
-          shortcut: { key: "P", modifier: "Ctrl" },
+          shortcut: { key: "P", modifier: "⌘" },
           action: () => {
             window.print();
             close();
@@ -34,7 +34,7 @@ const CommandPalette = () => {
         {
           id: "linkedin",
           label: "Visit LinkedIn",
-          shortcut: { key: "L", modifier: "Ctrl" },
+          shortcut: { key: "L", modifier: "⌘" },
           action: () => {
             window.open("https://www.linkedin.com/in/ralphortiz/", "_blank");
             close();
@@ -43,7 +43,7 @@ const CommandPalette = () => {
         {
           id: "github",
           label: "Visit GitHub",
-          shortcut: { key: "G", modifier: "Ctrl" },
+          shortcut: { key: "G", modifier: "⌘" },
           action: () => {
             window.open("https://github.com/rcortiz", "_blank");
             close();
@@ -201,7 +201,7 @@ const CommandPalette = () => {
 
           <div className="flex items-center">
             <code className="rounded bg-gray-200 px-2 py-1 text-sm text-xs text-gray-800">
-              Ctrl + K
+              ⌘ + K
             </code>
             <span className="mx-2">|</span>
             <code className="rounded bg-gray-200 px-2 py-1 text-sm text-xs text-gray-800">
