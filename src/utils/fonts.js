@@ -1,10 +1,15 @@
 import { Inter, Roboto_Mono } from "next/font/google";
 import localFont from "next/font/local";
 
-const inter_init = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const inter_init = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+});
 const roboto_init = Roboto_Mono({
   subsets: ["latin"],
   variable: "--font-roboto",
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
 });
 
 const cera_round_pro_init = localFont({
