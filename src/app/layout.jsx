@@ -1,6 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
+import { Analytics } from "@vercel/analytics/next";
 
 import { Toaster } from "@/components/ui/toaster";
 import NavigationBar from "@/components/sections/navigation";
@@ -61,6 +62,7 @@ export default function RootLayout({ children }) {
 
           <Footer />
         </div>
+        <Analytics />
       </body>
     </html>
   );
