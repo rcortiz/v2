@@ -2,7 +2,11 @@
 
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Tooltip } from "react-tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 import { FaCodeBranch, FaRegStar } from "react-icons/fa6";
 
@@ -56,24 +60,32 @@ const Footer = () => {
         <span className="font-cera text-xs">&copy; {year} Ralph Ortiz</span>
       </div>
       <div className="mt-2 flex items-center gap-x-4 gap-y-2">
-        <div
-          data-tooltip-id="stars"
-          data-tooltip-content="GitHub stars count"
-          className="flex items-center justify-center space-x-2"
-        >
-          <FaRegStar size="15px" />
-          <p className="text-xs leading-none">{repoDetails.stars}</p>
-        </div>
-        <Tooltip id="stars" />
-        <div
-          data-tooltip-id="forks"
-          data-tooltip-content="GitHub forks count"
-          className="flex items-center justify-center space-x-2"
-        >
-          <FaCodeBranch size="13px" />
-          <p className="text-xs leading-none">{repoDetails.forks}</p>
-        </div>
-        <Tooltip id="forks" />
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <div className="flex items-center justify-center space-x-2">
+              <FaRegStar size="15px" />
+              <p className="text-xs leading-none">{repoDetails?.stars ?? 0}</p>
+            </div>
+          </TooltipTrigger>
+          <TooltipContent>
+            {repoDetails?.stars ?? 0}{" "}
+            {repoDetails?.stars === 1 ? "person starred" : "people starred"}{" "}
+            this project
+          </TooltipContent>
+        </Tooltip>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <div className="flex items-center justify-center space-x-2">
+              <FaCodeBranch size="13px" />
+              <p className="text-xs leading-none">{repoDetails?.forks ?? 0}</p>
+            </div>
+          </TooltipTrigger>
+          <TooltipContent>
+            {repoDetails?.forks ?? 0}{" "}
+            {repoDetails?.forks === 1 ? "person forked" : "people forked"} this
+            project
+          </TooltipContent>
+        </Tooltip>
       </div>
     </footer>
   );
