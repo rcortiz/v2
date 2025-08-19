@@ -1,8 +1,3 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
-
-import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "../ui/badge";
 import ArrowUpRightIcon from "../icons/arrow-up-right";
 
@@ -14,49 +9,6 @@ const ExperienceCard = ({
   responsibility,
   techstacks,
 }) => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading) {
-    return (
-      <div className="py-5">
-        <div className="flex flex-col md:flex-row md:justify-between">
-          <div className="w-full">
-            <div className="flex flex-col gap-1 pb-2 md:flex-row md:items-center md:justify-between">
-              <div className="pb-2">
-                <Skeleton className="h-6 w-48" />
-              </div>
-
-              <div className="flex justify-between pb-4 md:justify-start md:gap-4">
-                <Skeleton className="h-6 w-32" />
-                <Skeleton className="h-6 w-20" />
-              </div>
-            </div>
-
-            <div className="space-y-2 pb-2 pt-2">
-              <Skeleton className="h-6 w-full" />
-              <Skeleton className="h-6 w-full" />
-              <Skeleton className="h-6 w-full" />
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              {[1, 2, 3].map((index) => (
-                <Skeleton key={index} className="h-6 w-16" />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="py-5">
       <div className="flex flex-col md:flex-row md:justify-between">

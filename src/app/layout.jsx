@@ -1,8 +1,4 @@
-"use client";
-import { useEffect } from "react";
-import { motion } from "framer-motion";
 import { Analytics } from "@vercel/analytics/next";
-
 import { Toaster } from "@/components/ui/toaster";
 import NavigationBar from "@/components/sections/navigation";
 import Footer from "@/components/sections/footer";
@@ -11,6 +7,32 @@ import Footer from "@/components/sections/footer";
 import "./globals.css";
 import { inter, roboto, ceraRoundPro } from "@/utils/fonts";
 // import { useCommandPaletteStore } from "@/store/store";
+
+export const metadata = {
+  title: {
+    default: "Ralph Ortiz",
+    template: "Ralph Ortiz | %s",
+  },
+  description:
+    "Frontend-focused full stack engineer with a passion for building beautiful, functional, and accessible websites and applications.",
+  keywords: [
+    "Next.js",
+    "React",
+    "JavaScript",
+    "TypeScript",
+    "Frontend",
+    "Full Stack",
+    "Software Engineer",
+    "Web Developer",
+  ],
+  authors: [
+    {
+      name: "Ralph Ortiz",
+      url: "https://github.com/ralph-ortiz",
+    },
+  ],
+  creator: "Ralph Ortiz",
+};
 
 export default function RootLayout({ children }) {
   // const { toggle } = useCommandPaletteStore();

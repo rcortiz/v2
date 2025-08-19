@@ -1,27 +1,14 @@
-"use client";
-
-import { useState, useEffect } from "react";
-
 import ProjectCard from "@/components/sections/projects";
 import Layout from "@/components/layout/layout";
 
 import { fetchCollectionData } from "@/services/firebase";
 
-const Projects = () => {
-  const [projects, setProjects] = useState([]);
+export const metadata = {
+  title: "Projects",
+};
 
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const projectData = await fetchCollectionData("Projects");
-        setProjects(projectData);
-      } catch (error) {
-        console.error("Failed to fetch projects:", error);
-      }
-    };
-
-    fetchProjects();
-  }, []);
+const Projects = async () => {
+  const projects = await fetchCollectionData("Projects");
 
   return (
     <Layout

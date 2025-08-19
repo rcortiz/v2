@@ -1,27 +1,14 @@
-"use client";
-
-import { useState, useEffect } from "react";
-
 import Layout from "@/components/layout/layout";
 
 import { fetchCollectionData } from "@/services/firebase";
 import ExperienceCard from "@/components/sections/experience";
 
-const Experience = () => {
-  const [experiences, setExperiences] = useState([]);
+export const metadata = {
+  title: "Experience",
+};
 
-  useEffect(() => {
-    const fetchExperiences = async () => {
-      try {
-        const experienceData = await fetchCollectionData("Experiences");
-        setExperiences(experienceData);
-      } catch (error) {
-        console.error("Failed to fetch experience:", error);
-      }
-    };
-
-    fetchExperiences();
-  }, []);
+const Experience = async () => {
+  const experiences = await fetchCollectionData("Experiences");
 
   return (
     <Layout

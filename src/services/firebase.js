@@ -27,7 +27,6 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
 // Initialize collection data fetching
-
 export const fetchCollectionData = async (collectionName) => {
   try {
     let docsQuery;
@@ -37,7 +36,7 @@ export const fetchCollectionData = async (collectionName) => {
     } else {
       docsQuery = collection(db, collectionName);
     }
-    // const querySnapshot = await getDocs(collection(db, collectionName));
+    await new Promise(resolve => setTimeout(resolve, 2000));
     const querySnapshot = await getDocs(docsQuery);
     const data = querySnapshot.docs.map((doc) => ({
       ...doc.data(),
