@@ -3,6 +3,8 @@ import Layout from "@/components/layout/layout";
 import { fetchCollectionData } from "@/services/firebase";
 import ExperienceCard from "@/components/sections/experience";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Experience",
 };

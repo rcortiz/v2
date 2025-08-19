@@ -3,6 +3,8 @@ import Layout from "@/components/layout/layout";
 
 import { fetchCollectionData } from "@/services/firebase";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Projects",
 };
