@@ -67,7 +67,11 @@ const NavigationBar = () => {
                 );
               })}
               <Button>
-                <a href="/ORTIZ_Resume.pdf" download>
+                <a
+                  href="/Ralph Ortiz - Full Stack Engineer.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <span>Resume</span>
                 </a>
               </Button>
@@ -115,7 +119,11 @@ const NavigationBar = () => {
                 );
               })}
               <Button>
-                <a href="/ORTIZ_Resume.pdf" download>
+                <a
+                  href="/Ralph Ortiz - Full Stack Engineer.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <span>Resume</span>
                 </a>
               </Button>
