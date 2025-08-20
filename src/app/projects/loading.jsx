@@ -15,7 +15,7 @@ const Loading = () => {
               key={index}
               className="flex w-full justify-stretch py-2 md:w-[370px] md:px-6 md:py-6"
             >
-              <div className="flex grow flex-col rounded-base border-2 border-primary bg-card text-card-foreground shadow shadow-dark dark:shadow-light">
+              <div className="flex grow flex-col rounded-base border-2 border-primary bg-card text-card-foreground shadow-dark dark:shadow-light">
                 <div className="flex flex-col space-y-1.5 p-6">
                   <Skeleton className="h-4 w-1/4" />
                   <Skeleton className="h-6 w-1/2" />

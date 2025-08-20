@@ -32,7 +32,7 @@ const ExperienceCard = ({
 
           <div className="space-y-2 pt-2">
             {responsibility.map((item, index) => (
-              <p key={index} className="text-primary/75">
+              <p key={index} className="text-sm text-primary/75 md:text-base">
                 {item}
               </p>
             ))}
