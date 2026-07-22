@@ -13,6 +13,11 @@ import AnimatedIcon from "@/components/floating-icon";
 import ReactIcon from "@/components/icons/react";
 import NodeIcon from "@/components/icons/node";
 import TailwindIcon from "@/components/icons/tailwind";
+import {
+  NodeStar,
+  ReactStar,
+  TailwindStar,
+} from "@/components/icons/technology-stars";
 
 const ContactDialog = dynamic(
   () => import("@/components/layout/contact-dialog"),
@@ -68,7 +73,8 @@ const Hero = () => {
           <Avatar />
           <AnimatedIcon
             IconComponent={icons[0]}
-            className="-right-6 -top-4 h-8 w-8"
+            BackgroundComponent={ReactStar}
+            className="-right-3 -top-2 h-8 w-8 md:-right-5 md:-top-4"
             animateProps={{ y: [0, -10, 0] }}
             transitionProps={{
               duration: 3,
@@ -78,7 +84,8 @@ const Hero = () => {
           />
           <AnimatedIcon
             IconComponent={icons[1]}
-            className="-left-5 top-12 h-10 w-10"
+            BackgroundComponent={NodeStar}
+            className="-left-4 top-[30%] h-10 w-10 md:-left-6 md:top-[32%]"
             animateProps={{ y: [0, 10, 0] }}
             transitionProps={{
               duration: 2.5,
@@ -88,7 +95,8 @@ const Hero = () => {
           />
           <AnimatedIcon
             IconComponent={icons[2]}
-            className="-right-8 bottom-8 h-12 w-12"
+            BackgroundComponent={TailwindStar}
+            className="-right-4 bottom-[12%] h-12 w-12 md:-right-7 md:bottom-[14%]"
             animateProps={{ y: [0, -8, 0] }}
             transitionProps={{
               duration: 2,

@@ -1,6 +1,31 @@
 const WEEKS = 53;
 const DAYS = 7;
 const CELL_SIZE = 16;
+const LABEL_WIDTH = 32;
+const MONTH_LABEL_HEIGHT = 20;
+const CELL_INSET = 2;
+const CELL_WIDTH = CELL_SIZE - CELL_INSET * 2;
+
+const months = [
+  ["Aug", 0],
+  ["Sep", 4],
+  ["Oct", 9],
+  ["Nov", 13],
+  ["Dec", 17],
+  ["Jan", 22],
+  ["Feb", 26],
+  ["Mar", 30],
+  ["Apr", 35],
+  ["May", 39],
+  ["Jun", 44],
+  ["Jul", 48],
+];
+
+const weekdays = [
+  ["Mon", 1],
+  ["Wed", 3],
+  ["Fri", 5],
+];
 
 const getActivityLevel = (week, day) => {
   const score =
@@ -17,15 +42,13 @@ const activity = Array.from({ length: WEEKS * DAYS }, (_, index) => {
   const week = Math.floor(index / DAYS);
   const day = index % DAYS;
   const level = getActivityLevel(week, day);
-  const radius = [1.5, 2.1, 2.8, 3.6, 4.5][level];
   const count = level === 0 ? 0 : level * 3 + ((week + day * 3) % 5);
 
   return {
     id: week + "-" + day,
-    cx: week * CELL_SIZE + CELL_SIZE / 2,
-    cy: day * CELL_SIZE + CELL_SIZE / 2,
+    x: LABEL_WIDTH + week * CELL_SIZE + CELL_INSET,
+    y: MONTH_LABEL_HEIGHT + day * CELL_SIZE + CELL_INSET,
     level,
-    radius,
     count,
   };
 });
@@ -61,30 +84,52 @@ const GitHubContributions = () => {
         <div className="github-activity-calendar-inner">
           <div
             role="img"
-            aria-label="Stylized dot contribution calendar showing a highly active year"
+            aria-label="GitHub-style contribution calendar showing a highly active year"
             className="github-activity-matrix"
           >
             <svg
-              viewBox={"0 0 " + WEEKS * CELL_SIZE + " " + DAYS * CELL_SIZE}
+              viewBox={`0 0 ${LABEL_WIDTH + WEEKS * CELL_SIZE} ${MONTH_LABEL_HEIGHT + DAYS * CELL_SIZE}`}
               aria-hidden="true"
               focusable="false"
             >
+              {months.map(([month, week]) => (
+                <text
+                  key={month}
+                  x={LABEL_WIDTH + week * CELL_SIZE + CELL_INSET}
+                  y="12"
+                  className="github-activity-label"
+                >
+                  {month}
+                </text>
+              ))}
+
+              {weekdays.map(([weekday, day]) => (
+                <text
+                  key={weekday}
+                  x="0"
+                  y={MONTH_LABEL_HEIGHT + day * CELL_SIZE + 11}
+                  className="github-activity-label"
+                >
+                  {weekday}
+                </text>
+              ))}
+
               {activity.map((item) => (
-                <circle
+                <rect
                   key={item.id}
-                  cx={item.cx}
-                  cy={item.cy}
-                  r={item.radius}
-                  className={
-                    "github-activity-dot github-activity-dot-" + item.level
-                  }
+                  x={item.x}
+                  y={item.y}
+                  width={CELL_WIDTH}
+                  height={CELL_WIDTH}
+                  rx="2"
+                  className={`github-activity-cell github-activity-level-${item.level}`}
                 >
                   <title>
                     {item.count +
                       " contribution" +
                       (item.count === 1 ? "" : "s")}
                   </title>
-                </circle>
+                </rect>
               ))}
             </svg>
           </div>
@@ -98,7 +143,7 @@ const GitHubContributions = () => {
               {[0, 1, 2, 3, 4].map((level) => (
                 <i
                   key={level}
-                  className={"github-activity-dot-" + level}
+                  className={`github-activity-level-${level}`}
                   aria-hidden="true"
                 />
               ))}
