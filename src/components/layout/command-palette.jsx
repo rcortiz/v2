@@ -112,7 +112,7 @@ const CommandPalette = () => {
     return () => {
       window.removeEventListener("keydown", handleGlobalKeyDown);
     };
-  }, [isOpen]);
+  }, [close, isOpen]);
 
   useEffect(() => {
     if (!isOpen) {

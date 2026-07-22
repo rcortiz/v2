@@ -1,94 +1,77 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import _ from "lodash";
+import React from "react";
+import dynamic from "next/dynamic";
+import { toast } from "sonner";
 
-import {
-  FaArrowRight,
-  FaGithub,
-  FaCodepen,
-  FaLinkedin,
-  FaDribbble,
-} from "react-icons/fa6";
+import { FaArrowRight } from "react-icons/fa6";
 
 import { Button } from "@/components/ui/button";
 import Avatar from "@/components/avatar";
-import ContactDialog from "@/components/layout/contact-dialog";
+import GitHubContributions from "@/components/github-contributions";
 import AnimatedIcon from "@/components/floating-icon";
 import ReactIcon from "@/components/icons/react";
 import NodeIcon from "@/components/icons/node";
-import ExpressIcon from "@/components/icons/express";
 import TailwindIcon from "@/components/icons/tailwind";
-import BulmaIcon from "@/components/icons/bulma";
-import BootstrapIcon from "@/components/icons/bootstrap";
+
+const ContactDialog = dynamic(
+  () => import("@/components/layout/contact-dialog"),
+  {
+    loading: () => (
+      <Button size="lg" className="w-full" aria-disabled="true" tabIndex={-1}>
+        Contact Me <FaArrowRight className="ml-2" size="14px" />
+      </Button>
+    ),
+  },
+);
 
 const Hero = () => {
-  const [randomIcons, setRandomIcons] = useState([null, null, null]);
-  const icons = [
-    ReactIcon,
-    ExpressIcon,
-    NodeIcon,
-    TailwindIcon,
-    BulmaIcon,
-    BootstrapIcon,
-  ];
+  const icons = [ReactIcon, NodeIcon, TailwindIcon];
 
-  useEffect(() => {
-    const selectedIcons = _.sampleSize(icons, 3);
-    setRandomIcons(selectedIcons);
-  }, []);
-
-  if (randomIcons.includes(null)) {
-    return null;
-  }
+  const handleScheduleMeeting = () => {
+    toast.info("Opening Calendly", {
+      description: "Choose a convenient 30-minute time slot.",
+    });
+  };
 
   return (
-    <div className="mx-auto flex flex-col gap-10 md:w-[1100px]">
-      <div className="flex flex-col justify-center gap-10 md:flex-row md:justify-between">
-        <div className="order-last md:order-1 md:w-[500px]">
+    <div className="mx-auto flex w-full max-w-6xl flex-col gap-12">
+      <section className="grid items-center gap-10 md:grid-cols-[minmax(0,1fr)_auto] md:gap-16">
+        <div className="order-2 min-w-0 md:order-1 md:max-w-[560px]">
           <div className="mb-6 flex flex-col text-center md:text-start">
             <h1 className="text-4xl font-bold">Ralph Ortiz</h1>
             <code className="pb-4 pt-1 text-lg font-semibold">
-              Full Stack Engineer
+              AI &amp; Software Engineer
             </code>
             <p>
               I am passionate about integrating functionality and design in
               applications to create intuitive, user-friendly experiences.
             </p>
           </div>
-          <div className="flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0">
-            <ContactDialog />
-            <a href="https://calendly.com/ralphortiz/30min" target="_blank">
-              <Button size="lg" className="w-full">
+          <div className="flex flex-col gap-4 md:flex-row">
+            <div className="md:flex-1">
+              <ContactDialog />
+            </div>
+            <Button
+              size="lg"
+              className="w-full md:flex-1 md:basis-0"
+              asChild
+            >
+              <a
+                href="https://calendly.com/ralphortiz/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleScheduleMeeting}
+              >
                 Schedule a meeting <FaArrowRight className="ml-2" size="14px" />
-              </Button>
-            </a>
-          </div>
-          <div className="mt-10 flex justify-center space-x-5 md:justify-start">
-            <a href="https://github.com/rcortiz" target="_blank">
-              <FaGithub size="24px" className="opacity-60 hover:opacity-100" />
-            </a>
-            <a href="https://codepen.io/rcortiz" target="_blank">
-              <FaCodepen size="24px" className="opacity-60 hover:opacity-100" />
-            </a>
-            <a href="https://www.linkedin.com/in/ralphortiz/" target="_blank">
-              <FaLinkedin
-                size="24px"
-                className="opacity-60 hover:opacity-100"
-              />
-            </a>
-            <a href="https://dribbble.com/_rcortiz" target="_blank">
-              <FaDribbble
-                size="24px"
-                className="opacity-60 hover:opacity-100"
-              />
-            </a>
+              </a>
+            </Button>
           </div>
         </div>
-        <div className="relative order-1 mx-auto md:order-last">
+        <div className="relative order-1 mx-auto md:order-2 md:mr-8">
           <Avatar />
           <AnimatedIcon
-            IconComponent={randomIcons[0]}
+            IconComponent={icons[0]}
             className="-right-6 -top-4 h-8 w-8"
             animateProps={{ y: [0, -10, 0] }}
             transitionProps={{
@@ -98,7 +81,7 @@ const Hero = () => {
             }}
           />
           <AnimatedIcon
-            IconComponent={randomIcons[1]}
+            IconComponent={icons[1]}
             className="-left-5 top-12 h-10 w-10"
             animateProps={{ y: [0, 10, 0] }}
             transitionProps={{
@@ -108,7 +91,7 @@ const Hero = () => {
             }}
           />
           <AnimatedIcon
-            IconComponent={randomIcons[2]}
+            IconComponent={icons[2]}
             className="-right-8 bottom-8 h-12 w-12"
             animateProps={{ y: [0, -8, 0] }}
             transitionProps={{
@@ -118,48 +101,37 @@ const Hero = () => {
             }}
           />
         </div>
-      </div>
-      <div className="space-y-6">
+      </section>
+      <section aria-labelledby="about-heading" className="space-y-6">
         <div>
-          <h5 className="mb-4 font-cera text-lg font-medium">About Me</h5>
+          <h2 id="about-heading" className="mb-4 font-cera text-xl font-bold">
+            About Me
+          </h2>
           <p className="mb-4 text-primary/75">
-            I&rsquo;m a software engineer passionate about creating seamless,
-            high-performance user interfaces that blend thoughtful design with
-            strong engineering principles. I enjoy working at the intersection
-            of design and development, ensuring that the experiences I build are
-            not only visually compelling but also highly usable and efficient.
-          </p>
-          <p className="mb-4 text-primary/75">
-            Currently, I&rsquo;m a Software Developer at{" "}
+            I&rsquo;m an AI &amp; Software Engineer focused on building
+            reliable, accessible products that combine thoughtful UX, robust
+            engineering, and practical AI.{" "}
+            <span className="font-semibold text-primary">
+              Currently, I work at{" "}
+            </span>
             <a
-              href="https://www.gmanmi.com/"
+              href="https://asia.viseo.com/"
               target="_blank"
-              className="font-medium text-[#EE4865] hover:underline dark:text-[#FFAB00]"
+              rel="noopener noreferrer"
+              className="font-cera font-bold text-[#EE4865] hover:underline dark:text-[#FFAB00]"
             >
-              GMA New Media Inc.
+              VISEO Asia
             </a>
-            , where I contribute to the design, development, and maintenance of
-            web applications, ensuring they meet performance, usability, and
-            scalability standards. I collaborate with cross-functional teams to
-            implement new features, troubleshoot issues, and enhance existing
-            systems.
-          </p>
-          <p className="mb-4 text-primary/75">
-            In the past, I&rsquo;ve had the opportunity to work in diverse
-            environments, from large corporations to start-ups, and have gained
-            valuable experience in managing group systems, APIs, and integrating
-            modern technologies like ReactJS and Node.js. Additionally, I enjoy
-            creating personal projects that explore different aspects of web
-            development.
-          </p>
-          <p className="mb-4 text-primary/75">
-            Outside of work, I&rsquo;m usually at the gym, playing video games,
-            reading, or watching TV series and documentaries. Traveling is
-            another one of my passions, and I&rsquo;m always looking for new
-            adventures.
+            {" "}
+            as a Software Engineer, maintaining multi-market
+            L&rsquo;Occitane storefronts across 14 regional stores and building
+            custom Shopify apps, middleware APIs, and automations. Outside of
+            work, I&rsquo;m usually at the gym, playing video games, reading,
+            watching documentaries, or planning the next place to travel.
           </p>
         </div>
-      </div>
+      </section>
+      <GitHubContributions />
     </div>
   );
 };

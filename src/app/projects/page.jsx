@@ -1,35 +1,23 @@
-import ProjectCard from "@/components/sections/projects";
+import ProjectGrid from "@/components/project-grid";
 import Layout from "@/components/layout/layout";
 
-import { fetchCollectionData } from "@/services/firebase";
-
-export const dynamic = "force-dynamic";
+import { projects } from "@/constants";
 
 export const metadata = {
   title: "Projects",
+  description:
+    "Selected AI, web application, and ecommerce projects designed and built by AI and software engineer Ralph Ortiz.",
+  alternates: { canonical: "/projects" },
 };
 
-const Projects = async () => {
-  const projects = await fetchCollectionData("Projects");
-
+const Projects = () => {
   return (
     <Layout
       showHeader
       title="Projects"
-      subtitle="A highlights of what I've designed and built"
+      subtitle="Highlights of what I've designed and built"
     >
-      <div className="flex flex-col">
-        <div className="flex flex-wrap justify-center">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="flex w-full justify-stretch py-2 md:w-[370px] md:px-6 md:py-6"
-            >
-              <ProjectCard {...project} />
-            </div>
-          ))}
-        </div>
-      </div>
+      <ProjectGrid projects={projects} />
     </Layout>
   );
 };

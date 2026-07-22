@@ -2,14 +2,14 @@ import React from "react";
 
 const Layout = ({ children, showHeader, title, subtitle }) => {
   return (
-    <div className="my-6">
+    <div className="pb-12 pt-8 sm:pt-16">
       {showHeader && (
-        <header className="container space-y-2 my-6">
-          <h1 className="text-2xl uppercase">{title}</h1>
-          <p>{subtitle}</p>
+        <header className="container mb-8 max-w-6xl space-y-2">
+          <h1 className="text-3xl">{title}</h1>
+          <p className="max-w-2xl text-primary/70">{subtitle}</p>
         </header>
       )}
-      <div className="flex flex-col container">{children}</div>
+      <div className="container flex max-w-6xl flex-col">{children}</div>
     </div>
   );
 };

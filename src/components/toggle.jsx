@@ -6,35 +6,47 @@ import MoonIcon from "./icons/moon";
 import SunIcon from "./icons/sun";
 
 const Toggle = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isPressed, setIsPressed] = useState(false);
 
   const toggleMode = () => {
-    setDarkMode((prev) => !prev);
-    document.documentElement.classList.toggle("dark");
+    const nextDarkMode = !darkMode;
+    setDarkMode(nextDarkMode);
+    document.documentElement.classList.toggle("dark", nextDarkMode);
   };
 
   return (
     <Button
-      variant="ghost"
+      size="icon"
       onClick={toggleMode}
-      className="relative h-12 w-12 overflow-hidden"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        setIsPressed(false);
+      }}
+      onPointerDown={() => setIsPressed(true)}
+      onPointerUp={() => setIsPressed(false)}
+      onPointerCancel={() => setIsPressed(false)}
+      aria-label={darkMode ? "Switch to light theme" : "Switch to dark theme"}
+      className="relative h-9 w-9 overflow-hidden p-0"
     >
       <motion.div
-        initial={{ y: 0, opacity: 1 }}
-        animate={darkMode ? { y: -40, opacity: 0 } : { y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
+        key={darkMode ? "moon" : "sun"}
+        initial={{ opacity: 0, rotate: -90, scale: 0.6 }}
+        animate={{
+          opacity: 1,
+          rotate: 0,
+          scale: isPressed ? 0.82 : isHovered ? 1.12 : 1,
+        }}
+        transition={{ duration: 0.25, ease: "easeOut" }}
         className="absolute"
       >
-        <SunIcon className="h-6 w-6 text-primary" />
-      </motion.div>
-
-      <motion.div
-        initial={{ y: 40, opacity: 0 }}
-        animate={darkMode ? { y: 0, opacity: 1 } : { y: 40, opacity: 0 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="absolute"
-      >
-        <MoonIcon className="h-6 w-6 text-primary" />
+        {darkMode ? (
+          <MoonIcon className="h-5 w-5 text-primary" />
+        ) : (
+          <SunIcon className="h-5 w-5 text-primary" />
+        )}
       </motion.div>
     </Button>
   );

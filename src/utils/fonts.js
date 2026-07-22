@@ -4,26 +4,16 @@ import localFont from "next/font/local";
 const inter_init = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
 });
 const roboto_init = Roboto_Mono({
   subsets: ["latin"],
   variable: "--font-roboto",
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const cera_round_pro_init = localFont({
   src: [
-    {
-      path: "./fonts/CeraRoundProThin.otf",
-      weight: "100",
-      style: "thin",
-    },
-    {
-      path: "./fonts/CeraRoundProLight.otf",
-      weight: "300",
-      style: "light",
-    },
     {
       path: "./fonts/CeraRoundProRegular.otf",
       weight: "400",
@@ -32,17 +22,17 @@ const cera_round_pro_init = localFont({
     {
       path: "./fonts/CeraRoundProMedium.otf",
       weight: "500",
-      style: "medium",
+      style: "normal",
     },
     {
       path: "./fonts/CeraRoundProBold.otf",
       weight: "700",
-      style: "bold",
+      style: "normal",
     },
     {
       path: "./fonts/CeraRoundProBlack.otf",
       weight: "900",
-      style: "black",
+      style: "normal",
     },
   ],
   variable: "--font-cera",

@@ -1,17 +1,16 @@
 import Layout from "@/components/layout/layout";
 
-import { fetchCollectionData } from "@/services/firebase";
 import ExperienceCard from "@/components/sections/experience";
-
-export const dynamic = "force-dynamic";
+import { experiences } from "@/constants";
 
 export const metadata = {
   title: "Experience",
+  description:
+    "Explore Ralph Ortiz's experience delivering AI solutions, web products, ecommerce platforms, APIs, and enterprise systems.",
+  alternates: { canonical: "/experience" },
 };
 
-const Experience = async () => {
-  const experiences = await fetchCollectionData("Experiences");
-
+const Experience = () => {
   return (
     <Layout
       showHeader
@@ -19,8 +18,8 @@ const Experience = async () => {
       subtitle="A timeline of my career development and experiences"
     >
       <div>
-        {experiences.map((experience, index) => (
-          <ExperienceCard {...experience} key={index} />
+        {experiences.map((experience) => (
+          <ExperienceCard {...experience} key={experience.id} />
         ))}
       </div>
     </Layout>

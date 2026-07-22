@@ -6,37 +6,40 @@ const ExperienceCard = ({
   link,
   company,
   year,
+  location,
   responsibility,
   techstacks,
 }) => {
   return (
-    <div className="py-5">
+    <article className="border-b border-primary/20 py-6 last:border-0">
       <div className="flex flex-col md:flex-row md:justify-between">
         <div className="w-full">
-          <div className="flex flex-col gap-1 pb-2 md:flex-row md:items-center md:justify-between">
-            <a href={link} target="_blank" rel="noopener noreferrer">
-              <h3 className="flex items-center text-base font-semibold">
-                {company}
-                <span className="ml-1">
-                  <ArrowUpRightIcon />
-                </span>
-              </h3>
-            </a>
+          <div className="flex flex-col gap-3 pb-2 md:flex-row md:items-start md:justify-between">
+            <div className="space-y-1">
+              <a href={link} target="_blank" rel="noopener noreferrer">
+                <h2 className="flex items-center text-lg font-semibold">
+                  {company}
+                  <span className="ml-1">
+                    <ArrowUpRightIcon />
+                  </span>
+                </h2>
+              </a>
+              <code className="block text-sm text-primary/80">{role}</code>
+            </div>
 
-            <div className="flex justify-between text-sm text-primary/90 md:justify-end md:gap-4 md:text-base">
-              <code>{role}</code>
-              <span className="hidden md:inline">|</span>
-              <code>{year}</code>
+            <div className="flex shrink-0 justify-between gap-4 md:flex-col md:items-end md:gap-1">
+              <code className="text-sm font-semibold">{year}</code>
+              <span className="text-sm text-primary/65">{location}</span>
             </div>
           </div>
 
-          <div className="space-y-2 pt-2">
+          <ul className="list-disc space-y-2 pl-5 pt-3">
             {responsibility.map((item, index) => (
-              <p key={index} className="text-sm text-primary/75 md:text-base">
+              <li key={index} className="font-inter text-[14px] text-primary/75">
                 {item}
-              </p>
+              </li>
             ))}
-          </div>
+          </ul>
 
           <div className="mt-4 flex flex-wrap gap-2">
             {techstacks.map((tech, index) => (
@@ -51,7 +54,7 @@ const ExperienceCard = ({
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

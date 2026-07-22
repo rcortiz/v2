@@ -11,7 +11,7 @@
 p,
 li {
   font-family: var(--font-inter);
-  font-size: 16px;
+  font-size: 14px;
 }
 
 h1,
@@ -26,6 +26,11 @@ h6 {
 
 code {
   font-family: var(--font-roboto);
+}
+
+::selection {
+  color: hsl(var(--primary-foreground));
+  background: hsl(var(--primary));
 }
 
 @layer base {
@@ -60,6 +65,7 @@ code {
 
     --radius: 0.5rem;
     --accent-text: 345 85% 60%; /* HSL equivalent of #EE4865 */
+    --grid-line: 0 0% 3.9%;
   }
 
   .dark {
@@ -91,6 +97,7 @@ code {
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
     --accent-text: 42 100% 50%; /* HSL equivalent of #FFAB00 */
+    --grid-line: 0 0% 98%;
   }
 }
 
@@ -99,6 +106,146 @@ code {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background font-inter text-foreground;
+    background-image: linear-gradient(
+        to right,
+        hsl(var(--grid-line) / 0.07) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        hsl(var(--grid-line) / 0.07) 1px,
+        transparent 1px
+      );
+    background-size: 32px 32px;
+    transition:
+      background-color 240ms ease,
+      color 240ms ease;
   }
+
+  .has-brutalist-cursor,
+  .has-brutalist-cursor * {
+    cursor: none !important;
+  }
+}
+
+.brutalist-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 30px;
+  height: 35px;
+  pointer-events: none;
+}
+
+.brutalist-cursor img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.brutalist-cursor-art {
+  position: absolute;
+  inset: 0;
+  display: block;
+  transform-origin: 18% 12%;
+  transition: transform 130ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.brutalist-cursor-white {
+  opacity: 0;
+  transform: scale(0.92);
+}
+
+.dark .brutalist-cursor-black {
+  opacity: 0;
+  transform: scale(0.92);
+}
+
+.dark .brutalist-cursor-white {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.github-activity-calendar {
+  width: 100%;
+  overflow: hidden;
+}
+
+.github-activity-calendar-inner {
+  width: 100%;
+  font-family: var(--font-inter);
+  font-size: 12px;
+}
+
+.github-activity-matrix {
+  width: 100%;
+}
+
+.github-activity-matrix svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.github-activity-dot {
+  fill: hsl(var(--primary));
+  transform-box: fill-box;
+  transform-origin: center;
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+.github-activity-dot-0 {
+  opacity: 0.1;
+}
+
+.github-activity-dot-1 {
+  opacity: 0.28;
+}
+
+.github-activity-dot-2 {
+  opacity: 0.5;
+}
+
+.github-activity-dot-3 {
+  opacity: 0.74;
+}
+
+.github-activity-dot-4 {
+  opacity: 1;
+}
+
+.github-activity-dot:hover {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+.github-activity-footer {
+  display: flex;
+  width: 100%;
+  margin-top: 8px;
+  align-items: center;
+  justify-content: space-between;
+  color: hsl(var(--primary) / 0.65);
+}
+
+.github-activity-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.github-activity-legend i {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: hsl(var(--primary));
 }
