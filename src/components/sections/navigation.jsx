@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import Toggle from "@/components/toggle";
-import BrandStar from "@/components/icons/brand-star";
+import LiveViewerIndicator from "@/components/live-viewer-indicator";
 
 import {
   FaBars,
@@ -82,16 +82,7 @@ const NavigationBar = () => {
   return (
     <header ref={headerRef} className="sticky top-0 z-50">
       <div className="container grid h-16 max-w-7xl grid-cols-[1fr_auto] items-center gap-5 lg:grid-cols-[1fr_auto_1fr]">
-        <Link
-          href="/"
-          aria-label="Ralph Ortiz home"
-          className="group flex h-9 w-9 shrink-0 items-center justify-center text-primary outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
-        >
-          <BrandStar
-            className="h-6 w-6 motion-safe:group-hover:animate-spin"
-            aria-hidden="true"
-          />
-        </Link>
+        <LiveViewerIndicator />
 
         <nav aria-label="Primary navigation" className="hidden lg:block">
           <ul className="flex items-center gap-8">

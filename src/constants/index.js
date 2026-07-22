@@ -98,6 +98,7 @@ export const projects = [
 export const experiences = [
   {
     id: "viseo-asia",
+    current: true,
     company: "VISEO Asia",
     link: "https://asia.viseo.com/",
     role: "Software Engineer (React + Shopify) - Independent Contractor",
@@ -107,7 +108,12 @@ export const experiences = [
       "Enhanced and maintained multi-market L'Occitane Shopify storefronts, supporting theme improvements, storefront fixes, localization updates, and client-specific feature requests across 14 regional Shopify stores.",
       "Developed and supported Shopify custom apps, middleware APIs, Python scripts, and Shopify Flow automations to improve internal workflows, third-party integrations, and operational efficiency.",
       "Implemented accessibility, cart, checkout, localization, and storefront enhancements, helping improve customer experience, release stability, and coordination across frontend, backend, and third-party systems.",
-      "Projects handled: L'Occitane Shopify websites and Shopify custom apps including Locci Discounts, Product Hub, and Extensions.",
+    ],
+    projects: [
+      "L'Occitane regional storefronts",
+      "Locci Discounts",
+      "Product Hub",
+      "Shopify Extensions",
     ],
     techstacks: ["React", "Shopify", "JavaScript", "Python", "Shopify Flow"],
   },
@@ -122,7 +128,13 @@ export const experiences = [
       "Built and delivered custom web applications, backend APIs, and MVP solutions for complex business integrations, improving operational workflows, third-party system connectivity, and overall platform functionality.",
       "Enhanced and maintained 3+ web applications by reviewing, configuring, and integrating third-party tools, ensuring they aligned with business requirements and worked smoothly with internal systems.",
       "Implemented frontend customizations, reusable components, dynamic content structures, and application enhancements using JavaScript, React, and backend API integrations, improving content flexibility, feature rollout speed, and long-term maintainability.",
-      "Projects handled: Ayala Malls, Sureseats, Pet Express, Toy Kingdom, and Crate & Barrel Shopify websites.",
+    ],
+    projects: [
+      "Ayala Malls",
+      "Sureseats",
+      "Pet Express",
+      "Toy Kingdom",
+      "Crate & Barrel",
     ],
     techstacks: ["React", "Next.js", "Shopify", "Node.js", "JavaScript"],
   },
@@ -137,8 +149,8 @@ export const experiences = [
       "Maintained and developed features for online pharmacy and clinic management platforms across 4 client accounts, improving system reliability and day-to-day platform usability.",
       "Resolved 150+ reported bugs and production issues, helping improve core workflows, user experience, and overall platform stability.",
       "Rebuilt a public-facing website using Next.js, Airtable CMS, GraphQL, and a custom component library, improving page load performance by approximately 45% and supporting better accessibility compliance aligned with WCAG 2.1 AA.",
-      "Projects handled: MedGrocer, Accenture, Maxicare, and ePharmacy websites.",
     ],
+    projects: ["MedGrocer", "Accenture", "Maxicare", "ePharmacy"],
     techstacks: ["React", "Next.js", "Airtable", "GraphQL", "Tailwind CSS"],
   },
 ];

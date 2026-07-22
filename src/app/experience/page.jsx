@@ -32,7 +32,10 @@ const experienceStructuredData = {
       position: index + 1,
       name: `${experience.role} at ${experience.company}`,
       url: experience.link,
-      description: experience.responsibility.join(" "),
+      description: [
+        ...experience.responsibility,
+        `Projects handled: ${experience.projects.join(", ")}.`,
+      ].join(" "),
     })),
   },
 };
@@ -45,11 +48,11 @@ const Experience = () => {
       subtitle="Software engineering across Shopify, React, APIs, and accessible web products"
     >
       <JsonLd data={experienceStructuredData} />
-      <div>
-        {experiences.map((experience) => (
-          <ExperienceCard {...experience} key={experience.id} />
+      <ol className="relative before:absolute before:bottom-2 before:left-[7px] before:top-2 before:w-0.5 before:bg-primary/20 sm:before:left-[10rem] [&>li:last-child>article]:border-0">
+        {experiences.map((experience, index) => (
+          <ExperienceCard {...experience} index={index} key={experience.id} />
         ))}
-      </div>
+      </ol>
     </Layout>
   );
 };
