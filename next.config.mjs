@@ -8,6 +8,10 @@ const nextConfig = {
   async headers() {
     return [
       {
+        source: "/:path*.pdf",
+        headers: [{ key: "X-Robots-Tag", value: "noindex" }],
+      },
+      {
         source: "/(.*)",
         headers: [
           { key: "X-Content-Type-Options", value: "nosniff" },

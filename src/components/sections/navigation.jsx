@@ -24,7 +24,7 @@ const IconTooltip = ({ label, className = "", children }) => {
       {children}
       <span
         role="tooltip"
-        className="pointer-events-none absolute left-1/2 top-[calc(100%+10px)] z-20 w-max -translate-x-1/2 -translate-y-1 border-2 border-primary bg-background px-3 py-2 font-cera text-xs font-bold text-primary opacity-0 shadow-[3px_3px_0_hsl(var(--primary))] transition-[opacity,transform] duration-150 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100"
+        className="pointer-events-none absolute left-1/2 top-[calc(100%+10px)] z-20 w-max -translate-x-1/2 -translate-y-1 border-2 border-primary bg-background px-3 py-2 font-cera text-xs font-bold text-primary opacity-0 shadow-[3px_3px_0_hsl(var(--primary))] transition-[opacity,transform] duration-150 group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:translate-y-0 group-hover:opacity-100"
       >
         {label}
       </span>
@@ -82,14 +82,16 @@ const NavigationBar = () => {
   return (
     <header ref={headerRef} className="sticky top-0 z-50">
       <div className="container grid h-16 max-w-7xl grid-cols-[1fr_auto] items-center gap-5 lg:grid-cols-[1fr_auto_1fr]">
-        <Button size="icon" className="group h-9 w-9 shrink-0 p-0" asChild>
-          <Link href="/" aria-label="Ralph Ortiz home">
-            <BrandStar
-              className="h-5 w-5 motion-safe:group-hover:animate-spin"
-              aria-hidden="true"
-            />
-          </Link>
-        </Button>
+        <Link
+          href="/"
+          aria-label="Ralph Ortiz home"
+          className="group flex h-9 w-9 shrink-0 items-center justify-center text-primary outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+        >
+          <BrandStar
+            className="h-6 w-6 motion-safe:group-hover:animate-spin"
+            aria-hidden="true"
+          />
+        </Link>
 
         <nav aria-label="Primary navigation" className="hidden lg:block">
           <ul className="flex items-center gap-8">
@@ -115,7 +117,7 @@ const NavigationBar = () => {
           </ul>
         </nav>
 
-        <div className="flex items-center justify-self-end gap-2">
+        <div className="flex items-center gap-2 justify-self-end">
           <IconTooltip label="View resume" className="hidden sm:block">
             <Button size="icon" className="h-9 w-9" asChild>
               <a

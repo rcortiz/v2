@@ -8,19 +8,19 @@ import PageTransition from "@/components/page-transition";
 
 import "./globals.css";
 import { inter, roboto, ceraRoundPro } from "@/utils/fonts";
+import { siteConfig } from "@/utils/site";
 // import { useCommandPaletteStore } from "@/store/store";
 
-const siteUrl = new URL("https://rcortiz.dev");
+const siteUrl = new URL(siteConfig.url);
 
 export const metadata = {
   title: {
-    default: "Ralph Ortiz — AI & Software Engineer",
-    template: "%s — Ralph Ortiz",
+    default: siteConfig.title,
+    template: `%s — ${siteConfig.name}`,
   },
-  description:
-    "Portfolio of Ralph Ortiz, an AI and software engineer building performant, accessible products with AI, React, Next.js, Node.js, and Shopify.",
+  description: siteConfig.description,
   metadataBase: siteUrl,
-  applicationName: "Ralph Ortiz Portfolio",
+  applicationName: siteConfig.name,
   alternates: {
     canonical: "/",
   },
@@ -39,7 +39,7 @@ export const metadata = {
   authors: [
     {
       name: "Ralph Ortiz",
-      url: "https://github.com/ralph-ortiz",
+      url: "https://github.com/rcortiz",
     },
   ],
   creator: "Ralph Ortiz",
@@ -48,10 +48,9 @@ export const metadata = {
   openGraph: {
     type: "website",
     url: "/",
-    siteName: "Ralph Ortiz Portfolio",
-    title: "Ralph Ortiz — AI & Software Engineer",
-    description:
-      "AI and software engineer building performant, accessible products with AI, React, Next.js, Node.js, and Shopify.",
+    siteName: siteConfig.name,
+    title: siteConfig.title,
+    description: siteConfig.description,
     images: [
       {
         url: "/opengraph-image",
@@ -63,14 +62,24 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ralph Ortiz — AI & Software Engineer",
-    description:
-      "AI and software engineer building performant, accessible products with AI, React, Next.js, Node.js, and Shopify.",
+    title: siteConfig.title,
+    description: siteConfig.description,
     images: ["/opengraph-image"],
+  },
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml", sizes: "any" }],
+    shortcut: "/icon.svg",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 
@@ -80,35 +89,6 @@ export const viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
     { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
-  ],
-};
-
-const personStructuredData = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Ralph Ortiz",
-  url: siteUrl.toString(),
-  image: new URL("/hero-img-transparent.png", siteUrl).toString(),
-  jobTitle: "AI & Software Engineer",
-  worksFor: {
-    "@type": "Organization",
-    name: "VISEO",
-    url: "https://asia.viseo.com/",
-  },
-  sameAs: [
-    "https://github.com/rcortiz",
-    "https://www.linkedin.com/in/ralphortiz/",
-    "https://codepen.io/rcortiz",
-    "https://dribbble.com/_rcortiz",
-  ],
-  knowsAbout: [
-    "React",
-    "Next.js",
-    "Node.js",
-    "Shopify",
-    "Artificial intelligence",
-    "Frontend development",
-    "Full stack development",
   ],
 };
 
@@ -169,12 +149,6 @@ export default function RootLayout({ children }) {
           </div> */}
           <Footer />
         </div>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(personStructuredData),
-          }}
-        />
         <Analytics />
       </body>
     </html>

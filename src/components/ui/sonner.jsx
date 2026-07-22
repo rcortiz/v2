@@ -13,6 +13,8 @@ const Toaster = (props) => {
             "!rounded-base !border-2 !border-primary !bg-background !text-foreground !shadow-dark dark:!shadow-light",
           title: "!font-cera !font-bold",
           description: "!font-inter !text-foreground/70",
+          actionButton:
+            "!rounded-base !border-2 !border-primary !bg-primary !font-cera !font-bold !text-primary-foreground !shadow-dark dark:!shadow-light",
           closeButton:
             "!border-2 !border-primary !bg-background !text-foreground",
         },

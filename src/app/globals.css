@@ -133,7 +133,7 @@ code {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999;
+  z-index: 2147483647;
   width: 24px;
   height: 28px;
   pointer-events: none;

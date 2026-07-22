@@ -44,19 +44,15 @@ const Hero = () => {
               AI &amp; Software Engineer
             </code>
             <p>
-              I am passionate about integrating functionality and design in
-              applications to create intuitive, user-friendly experiences.
+              I build accessible web products, Shopify experiences, and
+              practical AI solutions with thoughtful UX and robust engineering.
             </p>
           </div>
           <div className="flex flex-col gap-4 md:flex-row">
             <div className="md:flex-1">
               <ContactDialog />
             </div>
-            <Button
-              size="lg"
-              className="w-full md:flex-1 md:basis-0"
-              asChild
-            >
+            <Button size="lg" className="w-full md:flex-1 md:basis-0" asChild>
               <a
                 href="https://calendly.com/ralphortiz/30min"
                 target="_blank"
@@ -121,13 +117,12 @@ const Hero = () => {
               className="font-cera font-bold text-[#EE4865] hover:underline dark:text-[#FFAB00]"
             >
               VISEO Asia
-            </a>
-            {" "}
-            as a Software Engineer, maintaining multi-market
-            L&rsquo;Occitane storefronts across 14 regional stores and building
-            custom Shopify apps, middleware APIs, and automations. Outside of
-            work, I&rsquo;m usually at the gym, playing video games, reading,
-            watching documentaries, or planning the next place to travel.
+            </a>{" "}
+            as a Software Engineer, maintaining multi-market L&rsquo;Occitane
+            storefronts across 14 regional stores and building custom Shopify
+            apps, middleware APIs, and automations. Outside of work, I&rsquo;m
+            usually at the gym, playing video games, reading, watching
+            documentaries, or planning the next place to travel.
           </p>
         </div>
       </section>

@@ -1,22 +1,50 @@
 import Layout from "@/components/layout/layout";
+import JsonLd from "@/components/json-ld";
 
 import ExperienceCard from "@/components/sections/experience";
 import { experiences } from "@/constants";
+import { createPageMetadata, siteConfig } from "@/utils/site";
 
-export const metadata = {
+const description =
+  "Ralph Ortiz's software engineering experience across VISEO Asia, GMA New Media, and MedGrocer, delivering Shopify, React, API, and accessible web products.";
+
+export const metadata = createPageMetadata({
   title: "Experience",
-  description:
-    "Explore Ralph Ortiz's experience delivering AI solutions, web products, ecommerce platforms, APIs, and enterprise systems.",
-  alternates: { canonical: "/experience" },
+  description,
+  path: "/experience",
+});
+
+const experienceStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": `${siteConfig.url}/experience#webpage`,
+  url: `${siteConfig.url}/experience`,
+  name: `Experience — ${siteConfig.name}`,
+  description,
+  inLanguage: "en",
+  isPartOf: { "@id": `${siteConfig.url}/#website` },
+  about: { "@id": `${siteConfig.url}/#person` },
+  mainEntity: {
+    "@type": "ItemList",
+    numberOfItems: experiences.length,
+    itemListElement: experiences.map((experience, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: `${experience.role} at ${experience.company}`,
+      url: experience.link,
+      description: experience.responsibility.join(" "),
+    })),
+  },
 };
 
 const Experience = () => {
   return (
     <Layout
       showHeader
-      title="Experiences"
-      subtitle="A timeline of my career development and experiences"
+      title="Experience"
+      subtitle="Software engineering across Shopify, React, APIs, and accessible web products"
     >
+      <JsonLd data={experienceStructuredData} />
       <div>
         {experiences.map((experience) => (
           <ExperienceCard {...experience} key={experience.id} />

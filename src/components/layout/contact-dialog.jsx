@@ -13,7 +13,18 @@ import ContactForm from "./contact-form";
 import { Button } from "../ui/button";
 
 import { FaArrowRight } from "react-icons/fa6";
-import sendEmail from "@/services/send-email";
+import sendEmail, { EMAIL_ERROR_CODES } from "@/services/send-email";
+
+const CONTACT_EMAIL = "rcortiz.dev@gmail.com";
+
+const openEmailFallback = ({ fullname, email, subject, body }) => {
+  const message = [body, "", `From: ${fullname}`, `Reply to: ${email}`].join(
+    "\n",
+  );
+  const query = new URLSearchParams({ subject, body: message });
+
+  window.location.href = `mailto:${CONTACT_EMAIL}?${query.toString()}`;
+};
 
 const ContactDialog = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,11 +42,25 @@ const ContactDialog = () => {
       });
       setIsOpen(false);
       return true;
-    } catch {
-      toast.error("Message could not be sent", {
-        id: toastId,
-        description: "Please try again or contact me through LinkedIn.",
-      });
+    } catch (error) {
+      const providerNeedsReconnect =
+        error?.code === EMAIL_ERROR_CODES.PROVIDER_AUTH;
+
+      toast.error(
+        providerNeedsReconnect
+          ? "Email is temporarily unavailable"
+          : "Message could not be sent",
+        {
+          id: toastId,
+          description: providerNeedsReconnect
+            ? "Open your email app to send this message directly."
+            : "Try again or send this message from your email app.",
+          action: {
+            label: "Email directly",
+            onClick: () => openEmailFallback(values),
+          },
+        },
+      );
       return false;
     }
   };
