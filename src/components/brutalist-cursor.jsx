@@ -48,16 +48,16 @@ const BrutalistCursor = () => {
           className="brutalist-cursor-black"
           src="/neobrutal_cursor_mainly_black.svg"
           alt=""
-          width={30}
-          height={35}
+          width={24}
+          height={28}
           unoptimized
         />
         <Image
           className="brutalist-cursor-white"
           src="/neobrutal_cursor_mainly_white.svg"
           alt=""
-          width={30}
-          height={35}
+          width={24}
+          height={28}
           unoptimized
         />
       </span>

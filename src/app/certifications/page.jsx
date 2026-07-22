@@ -16,7 +16,7 @@ const Certifications = () => {
       title="Certifications"
       subtitle="Professional credentials across cloud and agile delivery"
     >
-      <div className="grid gap-5 md:grid-cols-[repeat(2,minmax(0,340px))]">
+      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {certifications.map((certification, index) => (
           <CertificationCard
             {...certification}

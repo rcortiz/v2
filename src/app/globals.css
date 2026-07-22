@@ -134,8 +134,8 @@ code {
   top: 0;
   left: 0;
   z-index: 9999;
-  width: 30px;
-  height: 35px;
+  width: 24px;
+  height: 28px;
   pointer-events: none;
 }
 
