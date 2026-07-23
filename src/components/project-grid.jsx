@@ -22,7 +22,25 @@ import ProjectCard from "@/components/sections/projects";
 const MAX_PROJECTS = 6;
 const STORAGE_KEY = "portfolio-project-order-v2";
 
-const SortableProject = ({ project }) => {
+const getProjectPlacement = (index, total) => {
+  const isLast = index === total - 1;
+  const isSecondToLast = index === total - 2;
+  const mediumPlacement = total % 2 === 1 && isLast ? "md:col-start-2" : "";
+
+  let largePlacement = "xl:col-start-auto";
+
+  if (total % 3 === 1 && isLast) {
+    largePlacement = "xl:col-start-3";
+  } else if (total % 3 === 2 && isSecondToLast) {
+    largePlacement = "xl:col-start-2";
+  } else if (total % 3 === 2 && isLast) {
+    largePlacement = "xl:col-start-4";
+  }
+
+  return `md:col-span-2 xl:col-span-2 ${mediumPlacement} ${largePlacement}`;
+};
+
+const SortableProject = ({ project, placementClassName }) => {
   const {
     attributes,
     listeners,
@@ -42,10 +60,8 @@ const SortableProject = ({ project }) => {
         zIndex: isDragging ? 20 : undefined,
       }}
       onPointerDown={listeners?.onPointerDown}
-      className={`relative h-full select-none ${
-        isDragging
-          ? "cursor-grabbing opacity-90"
-          : "cursor-grab opacity-100"
+      className={`relative h-full select-none ${placementClassName} ${
+        isDragging ? "cursor-grabbing opacity-90" : "cursor-grab opacity-100"
       }`}
     >
       <ProjectCard
@@ -132,9 +148,16 @@ const ProjectGrid = ({ projects }) => {
         items={orderedProjects.map(({ id }) => id)}
         strategy={rectSortingStrategy}
       >
-        <div className="grid gap-5 md:grid-cols-[repeat(2,minmax(0,340px))] xl:grid-cols-[repeat(3,minmax(0,340px))]">
-          {orderedProjects.map((project) => (
-            <SortableProject key={project.id} project={project} />
+        <div className="grid justify-center gap-5 md:grid-cols-[repeat(4,minmax(0,160px))] xl:grid-cols-[repeat(6,minmax(0,160px))]">
+          {orderedProjects.map((project, index) => (
+            <SortableProject
+              key={project.id}
+              project={project}
+              placementClassName={getProjectPlacement(
+                index,
+                orderedProjects.length,
+              )}
+            />
           ))}
         </div>
       </SortableContext>

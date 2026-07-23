@@ -101,7 +101,7 @@ export const experiences = [
     current: true,
     company: "VISEO Asia",
     link: "https://asia.viseo.com/",
-    role: "Software Engineer (React + Shopify) - Independent Contractor",
+    role: "Software Engineer (React + Shopify)",
     year: "Jun 2025 - Present",
     location: "Cebu, Philippines",
     responsibility: [
@@ -110,9 +110,8 @@ export const experiences = [
       "Implemented accessibility, cart, checkout, localization, and storefront enhancements, helping improve customer experience, release stability, and coordination across frontend, backend, and third-party systems.",
     ],
     projects: [
-      "L'Occitane regional storefronts",
-      "Locci Discounts",
-      "Product Hub",
+      "L'Occitane Shopify Websites",
+      "Shopify Custom Apps",
       "Shopify Extensions",
     ],
     techstacks: ["React", "Shopify", "JavaScript", "Python", "Shopify Flow"],
@@ -129,13 +128,7 @@ export const experiences = [
       "Enhanced and maintained 3+ web applications by reviewing, configuring, and integrating third-party tools, ensuring they aligned with business requirements and worked smoothly with internal systems.",
       "Implemented frontend customizations, reusable components, dynamic content structures, and application enhancements using JavaScript, React, and backend API integrations, improving content flexibility, feature rollout speed, and long-term maintainability.",
     ],
-    projects: [
-      "Ayala Malls",
-      "Sureseats",
-      "Pet Express",
-      "Toy Kingdom",
-      "Crate & Barrel",
-    ],
+    projects: ["Sureseats", "Pet Express", "Toy Kingdom", "Crate & Barrel"],
     techstacks: ["React", "Next.js", "Shopify", "Node.js", "JavaScript"],
   },
   {
@@ -150,7 +143,7 @@ export const experiences = [
       "Resolved 150+ reported bugs and production issues, helping improve core workflows, user experience, and overall platform stability.",
       "Rebuilt a public-facing website using Next.js, Airtable CMS, GraphQL, and a custom component library, improving page load performance by approximately 45% and supporting better accessibility compliance aligned with WCAG 2.1 AA.",
     ],
-    projects: ["MedGrocer", "Accenture", "Maxicare", "ePharmacy"],
+    projects: ["MedGrocer", "Accenture", "Maxicare", "Foundever"],
     techstacks: ["React", "Next.js", "Airtable", "GraphQL", "Tailwind CSS"],
   },
 ];

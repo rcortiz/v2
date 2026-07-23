@@ -12,7 +12,7 @@ import {
 import ContactForm from "./contact-form";
 import { Button } from "../ui/button";
 
-import { FaArrowRight } from "react-icons/fa6";
+import { FaArrowRight } from "@/components/icons";
 import sendEmail, { EMAIL_ERROR_CODES } from "@/services/send-email";
 
 const CONTACT_EMAIL = "rcortiz.dev@gmail.com";

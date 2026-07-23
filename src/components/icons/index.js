@@ -1,0 +1,25 @@
+export {
+  FaArrowRight,
+  FaArrowUpRightFromSquare,
+  FaArrowsRotate,
+  FaAws,
+  FaBars,
+  FaCertificate,
+  FaCheck,
+  FaChevronDown,
+  FaCodeBranch,
+  FaDiscord,
+  FaFileLines,
+  FaGithub,
+  FaGripVertical,
+  FaLinkedinIn,
+  FaLocationDot,
+  FaMinus,
+  FaReact,
+  FaRegStar,
+  FaShopify,
+  FaSpinner,
+  FaXmark,
+} from "react-icons/fa6";
+
+export { SiKick } from "react-icons/si";

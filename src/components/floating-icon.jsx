@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 const FloatingIcon = ({
   IconComponent,
@@ -7,11 +7,14 @@ const FloatingIcon = ({
   animateProps,
   transitionProps,
 }) => {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.figure
       className={`absolute flex items-center justify-center ${className}`}
-      animate={animateProps}
+      animate={shouldReduceMotion ? undefined : animateProps}
       transition={transitionProps}
+      aria-hidden="true"
     >
       <BackgroundComponent
         className="absolute inset-0 h-full w-full text-primary"

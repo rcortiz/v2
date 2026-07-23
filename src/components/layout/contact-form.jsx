@@ -14,7 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { FaArrowRight, FaSpinner } from "react-icons/fa6";
+import { FaArrowRight, FaSpinner } from "@/components/icons";
 
 import { contactFormSchema } from "@/services/validation";
 
@@ -149,7 +149,7 @@ const ContactForm = ({ handleOnSubmit }) => {
 
 const FormField = ({ id, label, error, children }) => (
   <div className="space-y-2">
-    <Label htmlFor={id} className="font-cera font-bold">
+    <Label htmlFor={id} className="font-space font-bold">
       {label}
     </Label>
     {children}

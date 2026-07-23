@@ -1,15 +1,14 @@
 import { Analytics } from "@vercel/analytics/next";
 import { Toaster } from "@/components/ui/sonner";
+import { TooltipAnchor } from "@/components/ui/link-tooltip";
 import NavigationBar from "@/components/sections/navigation";
 import Footer from "@/components/sections/footer";
-import BrutalistCursor from "@/components/brutalist-cursor";
-import PageTransition from "@/components/page-transition";
-// import CommandPalette from "@/components/layout/command-palette";
+import InteractiveGridBackground from "@/components/interactive-grid-background";
+import CommandPalette from "@/components/layout/command-palette";
 
 import "./globals.css";
-import { inter, roboto, ceraRoundPro } from "@/utils/fonts";
+import { inter, spaceGrotesk } from "@/utils/fonts";
 import { siteConfig } from "@/utils/site";
-// import { useCommandPaletteStore } from "@/store/store";
 
 const siteUrl = new URL(siteConfig.url);
 
@@ -67,8 +66,15 @@ export const metadata = {
     images: ["/opengraph-image"],
   },
   icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml", sizes: "any" }],
-    shortcut: "/icon.svg",
+    icon: [
+      {
+        url: "/hero-img-transparent.png",
+        type: "image/png",
+        sizes: "2400x2400",
+      },
+    ],
+    shortcut: "/hero-img-transparent.png",
+    apple: "/hero-img-transparent.png",
   },
   robots: {
     index: true,
@@ -93,61 +99,29 @@ export const viewport = {
 };
 
 export default function RootLayout({ children }) {
-  // const { toggle } = useCommandPaletteStore();
-
-  // useEffect(() => {
-  //   const handleKeyDown = (e) => {
-  //     if (
-  //       ((e.metaKey || e.ctrlKey) && e.key === "k") ||
-  //       ((e.metaKey || e.ctrlKey) && e.key === "K")
-  //     ) {
-  //       e.preventDefault();
-  //       toggle();
-  //     }
-  //   };
-
-  //   window.addEventListener("keydown", handleKeyDown);
-  //   return () => window.removeEventListener("keydown", handleKeyDown);
-  // }, [toggle]);
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
-      <body className={`${inter} ${roboto} ${ceraRoundPro}`}>
-        <a
-          href="#main-content"
-          className="fixed left-4 top-4 z-[10000] -translate-y-24 border-2 border-primary bg-background px-4 py-2 font-cera font-bold focus:translate-y-0"
-        >
-          Skip to content
-        </a>
-        <BrutalistCursor />
-        <div className="grid min-h-[100dvh] grid-rows-[auto_1fr_auto]">
+      <body className={`${inter} ${spaceGrotesk}`}>
+        <InteractiveGridBackground />
+        <div className="fixed left-4 top-4 z-[10000]">
+          <TooltipAnchor
+            href="#main-content"
+            tooltip="Skip to main content"
+            className="inline-flex -translate-y-24 border-2 border-primary bg-background px-4 py-2 font-space font-bold focus:translate-y-0"
+          >
+            Skip to content
+          </TooltipAnchor>
+        </div>
+        <div className="relative grid min-h-[100dvh] grid-rows-[auto_1fr_auto]">
           <NavigationBar />
-          <main id="main-content">
-            <PageTransition>{children}</PageTransition>
+          <main id="main-content" className="relative z-10">
+            {children}
           </main>
           <Toaster />
-          {/* <CommandPalette /> */}
-          {/* <div className="flex justify-center pb-6">
-            <motion.div
-              className="cursor-pointer rounded-full bg-background/80 px-4 py-2 backdrop-blur-sm"
-              onClick={toggle}
-              initial={{ opacity: 1, y: 10 }}
-              animate={{ opacity: 0.5, y: 0 }}
-              transition={{
-                duration: 0.8,
-                ease: "easeOut",
-              }}
-              whileHover={{ scale: 1.04, opacity: 1, duration: 0.8 }}
-            >
-              <p className="text-xs text-primary">
-                Press
-                <code className="mx-2 rounded bg-gray-200 px-2 py-1 text-gray-800">
-                  ⌘ + K
-                </code>
-                to open command palette
-              </p>
-            </motion.div>
-          </div> */}
-          <Footer />
+          <CommandPalette />
+          <div className="relative z-10">
+            <Footer />
+          </div>
         </div>
         <Analytics />
       </body>

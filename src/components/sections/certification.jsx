@@ -3,9 +3,14 @@ import {
   FaAws,
   FaCertificate,
   FaShopify,
-} from "react-icons/fa6";
+} from "@/components/icons";
 
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
 
 const icons = {
   aws: FaAws,
@@ -39,7 +44,9 @@ const CertificationCard = ({
           <p className="text-sm text-primary/65">Issued by {issuer}</p>
         </CardHeader>
         <CardContent className="flex-1 px-5 pb-5">
-          <p className="font-inter text-[14px] text-primary/75">{description}</p>
+          <p className="font-inter text-[14px] text-primary/75">
+            {description}
+          </p>
         </CardContent>
         <CardFooter className="gap-2 border-t-2 border-primary px-5 py-3">
           <FaCertificate className="h-3.5 w-3.5" aria-hidden="true" />

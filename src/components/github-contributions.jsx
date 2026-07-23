@@ -42,7 +42,10 @@ const activity = Array.from({ length: WEEKS * DAYS }, (_, index) => {
   const week = Math.floor(index / DAYS);
   const day = index % DAYS;
   const level = getActivityLevel(week, day);
-  const count = level === 0 ? 0 : level * 3 + ((week + day * 3) % 5);
+  const count =
+    level === 0
+      ? 0
+      : level + ((week + day * 3) % 2) + (week % 4 === 0 && day === 5 ? 1 : 0);
 
   return {
     id: week + "-" + day,
@@ -71,7 +74,7 @@ const GitHubContributions = () => {
       <div className="mb-5">
         <h2
           id="github-contributions-heading"
-          className="font-cera text-xl font-bold"
+          className="font-space text-xl font-bold"
         >
           GitHub Contributions
         </h2>

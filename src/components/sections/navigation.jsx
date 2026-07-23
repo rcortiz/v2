@@ -2,10 +2,10 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
+import { TooltipAnchor, TooltipLink } from "@/components/ui/link-tooltip";
 import Toggle from "@/components/toggle";
 import LiveViewerIndicator from "@/components/live-viewer-indicator";
 
@@ -15,16 +15,16 @@ import {
   FaGithub,
   FaLinkedinIn,
   FaXmark,
-} from "react-icons/fa6";
+} from "@/components/icons";
 import { navLinks } from "@/constants";
 
 const IconTooltip = ({ label, className = "", children }) => {
   return (
-    <div className={`group relative ${className}`}>
+    <div className={`group relative flex items-center ${className}`}>
       {children}
       <span
         role="tooltip"
-        className="pointer-events-none absolute left-1/2 top-[calc(100%+10px)] z-20 w-max -translate-x-1/2 -translate-y-1 border-2 border-primary bg-background px-3 py-2 font-cera text-xs font-bold text-primary opacity-0 shadow-[3px_3px_0_hsl(var(--primary))] transition-[opacity,transform] duration-150 group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:translate-y-0 group-hover:opacity-100"
+        className="pointer-events-none absolute left-1/2 top-[calc(100%+10px)] z-20 w-max -translate-x-1/2 -translate-y-1 border-2 border-primary bg-background px-3 py-2 font-space text-xs font-bold text-primary opacity-0 shadow-[3px_3px_0_hsl(var(--primary))] transition-[opacity,transform] duration-150 group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:translate-y-0 group-hover:opacity-100"
       >
         {label}
       </span>
@@ -34,12 +34,24 @@ const IconTooltip = ({ label, className = "", children }) => {
 
 const NavigationBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const headerRef = useRef(null);
   const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -80,7 +92,14 @@ const NavigationBar = () => {
   }, [isMenuOpen]);
 
   return (
-    <header ref={headerRef} className="sticky top-0 z-50">
+    <header
+      ref={headerRef}
+      className={`sticky top-0 z-50 border-b transition-[background-color,border-color,backdrop-filter] duration-200 ${
+        isScrolled
+          ? "border-primary/10 bg-background/80 backdrop-blur-md"
+          : "border-transparent bg-transparent"
+      }`}
+    >
       <div className="container grid h-16 max-w-7xl grid-cols-[1fr_auto] items-center gap-5 lg:grid-cols-[1fr_auto_1fr]">
         <LiveViewerIndicator />
 
@@ -89,19 +108,20 @@ const NavigationBar = () => {
             {navLinks.map((navLink) => {
               return (
                 <li key={navLink.path}>
-                  <Link
+                  <TooltipLink
                     href={navLink.path}
+                    tooltip={`Go to ${navLink.name} page`}
                     aria-current={
                       pathname === navLink.path ? "page" : undefined
                     }
-                    className={`font-cera text-base font-medium transition-colors ${
+                    className={`font-space text-base font-medium transition-colors ${
                       pathname === navLink.path
                         ? "text-primary"
                         : "text-primary/50 hover:text-primary"
                     }`}
                   >
                     {navLink.name}
-                  </Link>
+                  </TooltipLink>
                 </li>
               );
             })}
@@ -149,15 +169,18 @@ const NavigationBar = () => {
             <Toggle />
           </IconTooltip>
           <Button
-            variant="ghost"
             size="icon"
-            className="h-9 w-9 lg:hidden"
+            className="h-9 w-9 p-0 hover:translate-x-0 hover:translate-y-0 hover:shadow-dark active:translate-x-boxShadowX active:translate-y-boxShadowY active:shadow-none dark:hover:translate-x-0 dark:hover:translate-y-0 dark:hover:shadow-light dark:active:translate-x-boxShadowX dark:active:translate-y-boxShadowY dark:active:shadow-none lg:hidden"
             onClick={toggleMenu}
             aria-label={isMenuOpen ? "Close navigation" : "Open navigation"}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-navigation"
           >
-            {isMenuOpen ? <FaXmark size="18px" /> : <FaBars size="18px" />}
+            {isMenuOpen ? (
+              <FaXmark size="18px" aria-hidden="true" />
+            ) : (
+              <FaBars size="18px" aria-hidden="true" />
+            )}
           </Button>
         </div>
       </div>
@@ -184,12 +207,14 @@ const NavigationBar = () => {
                     key={navLink.path}
                     className="border-b border-primary/15 last:border-0"
                   >
-                    <Link
+                    <TooltipLink
                       href={navLink.path}
+                      tooltip={`Go to ${navLink.name} page`}
+                      tooltipSide="top"
                       aria-current={
                         pathname === navLink.path ? "page" : undefined
                       }
-                      className={`block py-3 font-cera font-medium transition-colors ${
+                      className={`block py-3 font-space font-medium transition-colors ${
                         pathname === navLink.path
                           ? "text-primary"
                           : "text-primary/50 hover:text-primary"
@@ -197,40 +222,46 @@ const NavigationBar = () => {
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {navLink.name}
-                    </Link>
+                    </TooltipLink>
                   </li>
                 );
               })}
               <li className="flex items-center gap-2 py-3 sm:hidden">
                 <Button size="icon" className="h-9 w-9" asChild>
-                  <a
+                  <TooltipAnchor
                     href="/Ralph Ortiz - Full Stack Engineer (Latest).pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="View resume"
+                    tooltip="View resume"
+                    tooltipSide="top"
                   >
                     <FaFileLines size="16px" aria-hidden="true" />
-                  </a>
+                  </TooltipAnchor>
                 </Button>
                 <Button size="icon" className="h-9 w-9" asChild>
-                  <a
+                  <TooltipAnchor
                     href="https://github.com/rcortiz"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="GitHub profile"
+                    tooltip="GitHub profile"
+                    tooltipSide="top"
                   >
                     <FaGithub size="18px" aria-hidden="true" />
-                  </a>
+                  </TooltipAnchor>
                 </Button>
                 <Button size="icon" className="h-9 w-9" asChild>
-                  <a
+                  <TooltipAnchor
                     href="https://www.linkedin.com/in/ralphortiz/"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="LinkedIn profile"
+                    tooltip="LinkedIn profile"
+                    tooltipSide="top"
                   >
                     <FaLinkedinIn size="17px" aria-hidden="true" />
-                  </a>
+                  </TooltipAnchor>
                 </Button>
               </li>
             </ul>

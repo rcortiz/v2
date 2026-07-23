@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { FaXmark } from "react-icons/fa6";
 
+import { FaXmark } from "@/components/icons";
 import { cn } from "@/lib/utils";
 
 const Dialog = DialogPrimitive.Root;
@@ -26,9 +26,12 @@ const DialogOverlay = React.forwardRef(({ className, ...props }, ref) => (
 DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
 
 const DialogContent = React.forwardRef(
-  ({ className, children, ...props }, ref) => (
+  (
+    { className, overlayClassName, hideClose = false, children, ...props },
+    ref,
+  ) => (
     <DialogPortal>
-      <DialogOverlay />
+      <DialogOverlay className={overlayClassName} />
       <DialogPrimitive.Content
         data-slot="dialog-content"
         ref={ref}
@@ -39,10 +42,12 @@ const DialogContent = React.forwardRef(
         {...props}
       >
         {children}
-        <DialogPrimitive.Close className="absolute right-4 top-4 grid h-7 w-7 place-items-center rounded-base border-2 border-transparent text-primary transition-colors hover:border-primary hover:bg-secondary focus-visible:border-primary focus-visible:bg-secondary focus-visible:outline-none disabled:pointer-events-none">
-          <FaXmark size="16px" aria-hidden="true" />
-          <span className="sr-only">Close</span>
-        </DialogPrimitive.Close>
+        {!hideClose && (
+          <DialogPrimitive.Close className="absolute right-4 top-4 grid h-8 w-8 place-items-center rounded-base border-2 border-primary bg-background text-primary shadow-[2px_2px_0_hsl(var(--primary))] transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none">
+            <FaXmark size="16px" aria-hidden="true" />
+            <span className="sr-only">Close</span>
+          </DialogPrimitive.Close>
+        )}
       </DialogPrimitive.Content>
     </DialogPortal>
   ),
@@ -52,10 +57,7 @@ DialogContent.displayName = DialogPrimitive.Content.displayName;
 const DialogHeader = ({ className, ...props }) => (
   <div
     data-slot="dialog-header"
-    className={cn(
-      "flex flex-col gap-2 text-center sm:text-left",
-      className,
-    )}
+    className={cn("flex flex-col gap-2 text-center sm:text-left", className)}
     {...props}
   />
 );

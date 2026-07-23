@@ -1,4 +1,5 @@
-import { FaCodeBranch, FaRegStar } from "react-icons/fa6";
+import { FaCodeBranch, FaRegStar } from "@/components/icons";
+import { TooltipAnchor } from "@/components/ui/link-tooltip";
 
 const repositoryUrl = "https://github.com/rcortiz/my-portfolio-v2";
 
@@ -8,14 +9,14 @@ const RepositoryMetric = ({ href, label, tooltip, value, children }) => {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative flex items-center gap-2 font-cera text-xs font-semibold opacity-70 transition-opacity hover:opacity-100 focus-visible:opacity-100"
+      className="group relative flex items-center gap-2 font-inter text-[0.65rem] font-semibold text-primary"
       aria-label={label}
     >
       {children}
       <span>{value}</span>
       <span
         role="tooltip"
-        className="pointer-events-none absolute bottom-[calc(100%+10px)] right-0 z-10 w-max max-w-52 translate-y-1 border-2 border-primary bg-background px-3 py-2 text-center font-cera text-xs font-bold text-primary opacity-0 shadow-[3px_3px_0_hsl(var(--primary))] transition-[opacity,transform] duration-150 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100"
+        className="pointer-events-none absolute bottom-[calc(100%+10px)] right-0 z-10 w-max max-w-52 translate-y-1 border-2 border-primary bg-background px-3 py-2 text-center font-inter text-[0.65rem] font-bold text-primary opacity-0 shadow-[3px_3px_0_hsl(var(--primary))] transition-[opacity,transform] duration-150 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100"
       >
         {tooltip}
       </span>
@@ -53,27 +54,33 @@ const Footer = async () => {
   return (
     <footer className="container mb-6 flex w-full max-w-7xl flex-col-reverse items-center justify-center gap-y-4 md:flex-row md:items-start md:justify-between">
       <div className="flex flex-col gap-y-1 text-center md:text-start">
-        <span className="font-cera text-xs">
+        <span className="font-inter text-[0.65rem]">
           Coded using{" "}
-          <a
+          <TooltipAnchor
             href="https://www.cursor.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-bold text-tx-accent"
+            className="font-bold text-primary"
+            tooltip="Visit Cursor website"
+            tooltipSide="top"
           >
             Cursor
-          </a>{" "}
+          </TooltipAnchor>{" "}
           and designed using{" "}
-          <a
+          <TooltipAnchor
             href="https://www.figma.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-bold text-tx-accent"
+            className="font-bold text-primary"
+            tooltip="Visit Figma website"
+            tooltipSide="top"
           >
             Figma
-          </a>
+          </TooltipAnchor>
         </span>
-        <span className="font-cera text-xs">&copy; {year} Ralph Ortiz</span>
+        <span className="font-inter text-[0.65rem]">
+          &copy; {year} Ralph Dev
+        </span>
       </div>
       <div className="mt-2 flex items-center gap-5">
         <RepositoryMetric

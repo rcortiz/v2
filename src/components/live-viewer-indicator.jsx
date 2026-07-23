@@ -77,7 +77,7 @@ const LiveViewerIndicator = () => {
           aria-hidden="true"
         />
       </span>
-      <span className="font-cera text-xs">
+      <span className="font-inter text-[0.65rem]">
         <strong className="font-bold text-primary">{viewers}</strong>{" "}
         <span className="text-primary/55">
           {viewers === 1 ? "person" : "people"} viewing now

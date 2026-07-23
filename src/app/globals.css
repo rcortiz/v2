@@ -21,16 +21,75 @@ h4,
 h5,
 h6 {
   font-weight: 700;
-  font-family: var(--font-cera);
+  font-family: var(--font-space);
 }
 
 code {
-  font-family: var(--font-roboto);
+  font-family: var(--font-inter);
 }
 
 ::selection {
   color: hsl(var(--primary-foreground));
   background: hsl(var(--primary));
+}
+
+.theme-transitioning,
+.theme-transitioning * {
+  transition: none !important;
+}
+
+@supports (-moz-appearance: none) {
+  html {
+    scrollbar-color: hsl(var(--scrollbar-thumb)) hsl(var(--background));
+    scrollbar-width: auto;
+  }
+}
+
+*::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+  background-color: hsl(var(--background));
+}
+
+*::-webkit-scrollbar-track {
+  background-color: hsl(var(--background));
+  border-left: 3px solid hsl(var(--primary));
+  box-shadow: inset 0 0 0 100vmax hsl(var(--background));
+}
+
+*::-webkit-scrollbar-thumb {
+  min-height: 72px;
+  border: 3px solid hsl(var(--primary));
+  border-radius: 0;
+  background-color: hsl(var(--scrollbar-thumb));
+  background-clip: border-box;
+  background-image: linear-gradient(
+      to right,
+      hsl(var(--primary-foreground) / 0.14) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      hsl(var(--primary-foreground) / 0.14) 1px,
+      transparent 1px
+    );
+  background-size: 32px 32px;
+  opacity: 1;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--scrollbar-thumb-hover));
+}
+
+*::-webkit-scrollbar-corner {
+  border-left: 3px solid hsl(var(--primary));
+  border-top: 3px solid hsl(var(--primary));
+  background-color: hsl(var(--background));
+  box-shadow: inset 0 0 0 100vmax hsl(var(--background));
+}
+
+*::-webkit-scrollbar-button {
+  display: none;
 }
 
 @layer base {
@@ -64,8 +123,9 @@ code {
     --ring: 0 0% 3.9%;
 
     --radius: 0.5rem;
-    --accent-text: 345 85% 60%; /* HSL equivalent of #EE4865 */
     --grid-line: 0 0% 3.9%;
+    --scrollbar-thumb: 0 0% 9%;
+    --scrollbar-thumb-hover: 0 0% 22%;
   }
 
   .dark {
@@ -96,8 +156,9 @@ code {
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
-    --accent-text: 42 100% 50%; /* HSL equivalent of #FFAB00 */
     --grid-line: 0 0% 98%;
+    --scrollbar-thumb: 0 0% 98%;
+    --scrollbar-thumb-hover: 0 0% 78%;
   }
 }
 
@@ -123,53 +184,9 @@ code {
       color 240ms ease;
   }
 
-  .has-brutalist-cursor,
-  .has-brutalist-cursor * {
-    cursor: none !important;
+  body.has-interactive-grid {
+    background-image: none;
   }
-}
-
-.brutalist-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 2147483647;
-  width: 24px;
-  height: 28px;
-  pointer-events: none;
-}
-
-.brutalist-cursor img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  transition:
-    opacity 180ms ease,
-    transform 180ms ease;
-}
-
-.brutalist-cursor-art {
-  position: absolute;
-  inset: 0;
-  display: block;
-  transform-origin: 18% 12%;
-  transition: transform 130ms cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.brutalist-cursor-white {
-  opacity: 0;
-  transform: scale(0.92);
-}
-
-.dark .brutalist-cursor-black {
-  opacity: 0;
-  transform: scale(0.92);
-}
-
-.dark .brutalist-cursor-white {
-  opacity: 1;
-  transform: scale(1);
 }
 
 @keyframes live-viewer-pulse {
@@ -188,10 +205,48 @@ code {
   animation: live-viewer-pulse 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
+.hero-birthday-confetti {
+  top: -10%;
+  opacity: 0;
+  animation-name: hero-confetti-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: top, opacity, transform;
+}
+
+@keyframes hero-confetti-fall {
+  0% {
+    top: -10%;
+    opacity: 0;
+    transform: translate3d(0, -10px, 0) rotate(0);
+  }
+  8% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.85;
+    transform: translate3d(var(--confetti-drift), 0, 0)
+      rotate(var(--confetti-rotation-mid));
+  }
+  92% {
+    opacity: 0.75;
+  }
+  100% {
+    top: 110%;
+    opacity: 0;
+    transform: translate3d(var(--confetti-drift-end), 10px, 0)
+      rotate(var(--confetti-rotation));
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .live-viewer-pulse {
     animation: none;
     opacity: 0.35;
+  }
+
+  .hero-birthday-confetti {
+    display: none;
   }
 }
 

@@ -18,8 +18,7 @@ const config = {
     extend: {
       fontFamily: {
         inter: ["var(--font-inter)"],
-        cera: ["var(--font-cera)"],
-        roboto: ["var(--font-roboto)"],
+        space: ["var(--font-space)"],
       },
       fontSize: {
         sm: "0.8rem",
@@ -36,7 +35,6 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        "tx-accent": "hsl(Var(--accent-text))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

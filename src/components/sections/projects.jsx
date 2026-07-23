@@ -3,7 +3,7 @@ import {
   FaGripVertical,
   FaReact,
   FaShopify,
-} from "react-icons/fa6";
+} from "@/components/icons";
 import {
   Card,
   CardContent,
@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { TooltipAnchor } from "@/components/ui/link-tooltip";
 
 const Projects = ({
   category,
@@ -38,7 +39,7 @@ const Projects = ({
               title="Drag to reorder"
               aria-label={`Reorder ${title}. Use arrow keys or drag.`}
               aria-pressed={isDragging}
-              className="-mr-1 -mt-1 grid h-7 w-7 shrink-0 touch-none place-items-center border-2 border-transparent text-primary/50 transition-colors hover:border-primary hover:bg-main hover:text-main-foreground focus-visible:border-primary focus-visible:bg-main focus-visible:text-main-foreground focus-visible:outline-none"
+              className="hover:bg-main hover:text-main-foreground focus-visible:bg-main focus-visible:text-main-foreground -mr-1 -mt-1 grid h-7 w-7 shrink-0 touch-none place-items-center border-2 border-transparent text-primary/50 transition-colors hover:border-primary focus-visible:border-primary focus-visible:outline-none"
               {...dragHandleProps}
             >
               <FaGripVertical aria-hidden="true" />
@@ -61,11 +62,13 @@ const Projects = ({
         </CardContent>
         <CardFooter className="flex items-end justify-end px-5 pb-5">
           <Button size="sm" asChild>
-            <a
+            <TooltipAnchor
               href={link}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Learn more about ${title} (opens in a new tab)`}
+              tooltip={`Open ${title} project`}
+              tooltipSide="top"
             >
               Learn More
               <FaArrowUpRightFromSquare
@@ -73,7 +76,7 @@ const Projects = ({
                 size="13px"
                 aria-hidden="true"
               />
-            </a>
+            </TooltipAnchor>
           </Button>
         </CardFooter>
       </article>

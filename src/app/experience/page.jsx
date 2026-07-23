@@ -49,8 +49,8 @@ const Experience = () => {
     >
       <JsonLd data={experienceStructuredData} />
       <ol className="relative before:absolute before:bottom-2 before:left-[7px] before:top-2 before:w-0.5 before:bg-primary/20 sm:before:left-[10rem] [&>li:last-child>article]:border-0">
-        {experiences.map((experience, index) => (
-          <ExperienceCard {...experience} index={index} key={experience.id} />
+        {experiences.map((experience) => (
+          <ExperienceCard {...experience} key={experience.id} />
         ))}
       </ol>
     </Layout>
